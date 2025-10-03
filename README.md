@@ -7,3 +7,4 @@ TODOs
 3 - Inventory System (Gather Items / etc.)
 4 - Simple Puzzles
 5 - FOG
+6 - Crafter/Alchemy Interaction

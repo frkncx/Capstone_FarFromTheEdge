@@ -6,41 +6,36 @@ using UnityEngine.Events;
 
 public class GameManager : Singleton<GameManager>
 {
-    //public UnityEvent onGameWon;
 
     private void Update()
     {
-        PauseMenuManager();
+
     }
 
     /// <summary>
-    /// Pause the Game on pressing ESC
+    /// Pause the Game on pressing ESC, Attached to Player Input 
     /// </summary>
-    void PauseMenuManager()
+    public void PauseMenuManager()
     {
-        // If the escape key is pressed
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Time.timeScale == 1f)
         {
-            if (Time.timeScale == 1f) 
+
+            if (GameObject.FindGameObjectWithTag("PauseMenu") == null)
             {
-
-                if (GameObject.FindGameObjectWithTag("PauseMenu") == null)
-                {
-                    Instantiate(Resources.Load("PauseMenu"));
-                }
-
-                // Pause
-                Time.timeScale = 0f; 
+                Instantiate(Resources.Load("PauseMenu"));
             }
-            else if (Time.timeScale == 0f)
-            {
 
-                // Destroy the pause menu
-                Destroy(GameObject.FindGameObjectWithTag("PauseMenu"));
+            // Pause
+            Time.timeScale = 0f;
+        }
+        else if (Time.timeScale == 0f)
+        {
 
-                // Resume 
-                Time.timeScale = 1f; 
-            }
+            // Destroy the pause menu
+            Destroy(GameObject.FindGameObjectWithTag("PauseMenu"));
+
+            // Resume 
+            Time.timeScale = 1f;
         }
     }
 }

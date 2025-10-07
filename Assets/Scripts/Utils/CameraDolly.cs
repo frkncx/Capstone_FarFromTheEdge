@@ -8,8 +8,9 @@ public class CameraDolly : MonoBehaviour
     Vector3 currentVelocity;
 
     // Values to adjust in the Inspector
-    public float distance = 25;
-    public float height = 45;
+    public float distance = 25f;
+    public float height = 45f;
+    public float offSet = 5f;
     public float smoothTime = 0.25f;
 
     
@@ -17,7 +18,7 @@ public class CameraDolly : MonoBehaviour
     void LateUpdate()
     {
         // Target the player's position and transform camera accordingly
-        Vector3 target = new Vector3(player.position.x, height, player.position.z - distance);
-        transform.position = Vector3.SmoothDamp(transform.position, target, ref currentVelocity, smoothTime);;
+        Vector3 target = new Vector3(player.position.x + offSet, height, player.position.z - distance);
+        transform.position = Vector3.SmoothDamp(transform.position, target, ref currentVelocity, smoothTime);
     }
 }

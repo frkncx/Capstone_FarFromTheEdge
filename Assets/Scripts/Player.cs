@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
     /// Called in Player's "Player Input" Component to move
     /// </summary>
     /// <param name="context"></param>
-    public void OnMove(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    public void OnMove(InputAction.CallbackContext context)
     {
         if (context.action.inProgress)
         {
@@ -105,12 +105,23 @@ public class Player : MonoBehaviour
     {
         if (context.action.inProgress && nearbyInteractable != null && !isPaused)
         {
-            isPaused = true;
+            // If the object was destroyed, ignore
+            if (nearbyInteractable == null)
+            {
+                nearbyInteractable = null;
+                eShortCutCue.gameObject.SetActive(false);
+                return;
+            }
 
+            // Interact and initiate collect animation
+            isPaused = true;
             animator.SetTrigger(collectParam);
             nearbyInteractable.OnPlayerInteraction(this);
+
+            nearbyInteractable = null;
             eShortCutCue.gameObject.SetActive(false);
 
+            // Resume Pause State
             StartCoroutine(ResumeAfterPause(0.7540984f));
         }
         else

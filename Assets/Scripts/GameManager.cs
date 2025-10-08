@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class GameManager : Singleton<GameManager>
 {
+    public int Item1Count { get; set; } = 0;
+    public int Item2Count { get; set; } = 0;
 
     private void Update()
     {

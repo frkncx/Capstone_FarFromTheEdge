@@ -1,16 +1,24 @@
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class Item : MonoBehaviour, IPlayerInteractable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    // Stats for the items, modify them in the inspector
+    [SerializeField] protected float rotateSpeed = 90f;
+    [SerializeField] protected string itemName = "Item";
+
+    private void Update()
     {
-        
+        // rotate automatically without the need for animation
+        transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Destory the item on interaction with the player
+    /// </summary>
+    /// <param name="player"></param>
+    public void OnPlayerInteraction(Player player)
     {
-        
+        Debug.Log($"{itemName} Collected");
+        Destroy(gameObject);
     }
 }

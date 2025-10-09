@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        // Hide the E cue at the start
         eShortCutCue.gameObject.SetActive(false);
     }
 
@@ -35,8 +36,8 @@ public class Player : MonoBehaviour
         // Stop movement when paused
         if (isPaused)
         {
-            //rb.linearVelocity = Vector3.zero;
-            //animator.SetFloat("MoveSpeed", 0f);
+            rb.linearVelocity = Vector3.zero;
+            animator.SetFloat("MoveSpeed", 0f);
             return;
         }
 
@@ -60,6 +61,8 @@ public class Player : MonoBehaviour
 
         #endregion
     }
+
+    #region Movement Methods
 
     /// <summary>
     /// Method that flips the player sprite based on direction
@@ -95,7 +98,9 @@ public class Player : MonoBehaviour
         else moveDirection = Vector3.zero;
     }
 
-    #region Collecting Items
+    #endregion
+
+    #region Collecting Item Methods
 
     /// <summary>
     ///  Collect Items BOI by Pressing E
@@ -168,14 +173,5 @@ public class Player : MonoBehaviour
     }
 
     #endregion
-
-    public void OnOpenInventory(InputAction.CallbackContext context)
-    {
-        if (context.action.inProgress)
-        {
-            // Implement inventory opening logic here
-            Debug.Log("Inventory opened (functionality to be implemented).");
-        }
-    }
 }
 

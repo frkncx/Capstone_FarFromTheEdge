@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
 
     public void OnInventoryToggle(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.action.inProgress)
         {
             if (inventoryMenu != null)
             {

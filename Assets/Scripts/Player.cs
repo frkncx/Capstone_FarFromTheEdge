@@ -108,8 +108,6 @@ public class Player : MonoBehaviour
     {
         if (context.action.inProgress && nearbyInteractable != null && !isPaused)
         {
-<<<<<<< Updated upstream
-=======
             // If the object was destroyed, ignore
             if (nearbyInteractable == null)
             {
@@ -118,20 +116,14 @@ public class Player : MonoBehaviour
             }
 
             // Interact and initiate collect animation
->>>>>>> Stashed changes
+
             isPaused = true;
 
             animator.SetTrigger(collectParam);
             nearbyInteractable.OnPlayerInteraction(this);
-<<<<<<< Updated upstream
-            eShortCutCue.gameObject.SetActive(false);
-
-=======
 
             nearbyInteractable = null;
-
             // Resume Pause State (Number corresponds to collect animation time)
->>>>>>> Stashed changes
             StartCoroutine(ResumeAfterPause(0.7540984f));
         }
         else

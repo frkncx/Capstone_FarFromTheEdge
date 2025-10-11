@@ -9,29 +9,6 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject inventoryMenu;
 
-<<<<<<< Updated upstream
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void ToggleInventoryMenu()
-    {
-        if (inventoryMenu != null)
-        {
-            bool isActive = inventoryMenu.activeSelf;
-            inventoryMenu.SetActive(!isActive);
-        }
-    }
-
-=======
     [SerializeField]
     private TMP_Text item1CountText, item2CountText;
 
@@ -41,16 +18,12 @@ public class UIManager : MonoBehaviour
         item2CountText.text = GameManager.Instance.Item2Count.ToString("D1");
     }
 
-    /// <summary>
-    /// Toggle inventory menu with Q key.
-    /// </summary>
-    /// <param name="context"></param>
->>>>>>> Stashed changes
-    public void OnInventoryToggle(InputAction.CallbackContext context)
+    public void ToggleInventoryMenu()
     {
-        if (context.performed)
+        if (inventoryMenu != null)
         {
-            ToggleInventoryMenu();
+            bool isActive = inventoryMenu.activeSelf;
+            inventoryMenu.SetActive(!isActive);
         }
     }
 

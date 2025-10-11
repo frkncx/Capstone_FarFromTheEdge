@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
     public int moveSpeed = 10;
 
     [Header("Item Utils")]
-    [SerializeField] private Image eShortCutCue;
     private IPlayerInteractable nearbyInteractable;
 
     // Animation Utils
@@ -26,8 +25,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        // Hide the E cue at the start
-        eShortCutCue.gameObject.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -110,12 +108,30 @@ public class Player : MonoBehaviour
     {
         if (context.action.inProgress && nearbyInteractable != null && !isPaused)
         {
+<<<<<<< Updated upstream
+=======
+            // If the object was destroyed, ignore
+            if (nearbyInteractable == null)
+            {
+                nearbyInteractable = null;
+                return;
+            }
+
+            // Interact and initiate collect animation
+>>>>>>> Stashed changes
             isPaused = true;
 
             animator.SetTrigger(collectParam);
             nearbyInteractable.OnPlayerInteraction(this);
+<<<<<<< Updated upstream
             eShortCutCue.gameObject.SetActive(false);
 
+=======
+
+            nearbyInteractable = null;
+
+            // Resume Pause State (Number corresponds to collect animation time)
+>>>>>>> Stashed changes
             StartCoroutine(ResumeAfterPause(0.7540984f));
         }
         else
@@ -144,7 +160,10 @@ public class Player : MonoBehaviour
         if (collision.TryGetComponent(out IPlayerInteractable interactable))
         {
             nearbyInteractable = interactable;
-            eShortCutCue.gameObject.SetActive(true);
+
+            // Tell the item to show its cue if it’s an Item
+            if (interactable is Item item)
+                item.ShowCue();
         }
     }
 
@@ -154,10 +173,13 @@ public class Player : MonoBehaviour
     /// <param name="other"></param>
     public void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent(out IPlayerInteractable interactable) && interactable == nearbyInteractable)
+        if (other.TryGetComponent(out IPlayerInteractable interactable))
         {
+            // Tell the item to hide its cue if it’s an Item
+            if (interactable is Item item)
+                item.HideCue();
+
             nearbyInteractable = null;
-            eShortCutCue.gameObject.SetActive(false);
         }
     }
 

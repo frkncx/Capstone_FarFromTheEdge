@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public class Item : MonoBehaviour, IPlayerInteractable
+public class Item : MonoBehaviour
 {
     // Stats for the items, modify them in the inspector
     [SerializeField] protected float rotateSpeed = 90f;
     [SerializeField] protected string itemName = "Item";
+
+    // Visual cue popup
+    [SerializeField] protected GameObject EVisualCue;
 
     private void Update()
     {
@@ -12,13 +15,16 @@ public class Item : MonoBehaviour, IPlayerInteractable
         transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
     }
 
-    /// <summary>
-    /// Destory the item on interaction with the player
-    /// </summary>
-    /// <param name="player"></param>
-    public void OnPlayerInteraction(Player player)
+    // These two methods will be called by Player
+    public void ShowCue()
     {
-        Debug.Log($"{itemName} Collected");
-        Destroy(gameObject);
+        if (EVisualCue != null)
+            EVisualCue.SetActive(true);
+    }
+
+    public void HideCue()
+    {
+        if (EVisualCue != null)
+            EVisualCue.SetActive(false);
     }
 }

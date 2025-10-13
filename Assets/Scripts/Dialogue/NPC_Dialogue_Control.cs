@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class NPC_Dialogue_Control : MonoBehaviour
@@ -38,14 +39,15 @@ public class NPC_Dialogue_Control : MonoBehaviour
         isDialogueStarted = false;
     }
 
-    void Update()
+    public void OnTriggerDialogue(InputAction.CallbackContext context)
     {
         //IMPORTANT: This is where the dialogue is triggered. Check if we are doing with the input key or by distance, etc.
         //THE LOGIC BELOW NEEDS TO BE TESTED YET, but since I didn't get to use E for it, I wasn't able to test.
         //This full logic intention is to check if it is the first dialogue (giving the quest),
         //the second dialogue (having two buttons in the end to check if quest is completed or not)
         //and the final dialogue that is the one the NPC will keep repeating)
-        if (Input.GetKeyDown(KeyCode.E) && playerHit) //It was supposed to have and "Press E" here as well, but I didn't figure out how to do it.
+
+        if (playerHit) //It was supposed to have and "Press E" here as well, but I didn't figure out how to do it.
         {
             dialogueBox.SetActive(true);
 
@@ -53,8 +55,8 @@ public class NPC_Dialogue_Control : MonoBehaviour
             {
                 isDialogueStarted = true;
                 firstDialogue.enabled = true;
-                
-                if(firstDialogue.isDialogueOver)
+
+                if (firstDialogue.isDialogueOver)
                 {
                     isFirstDialogue = false;
                     isSecondDialogue = true;
@@ -62,7 +64,7 @@ public class NPC_Dialogue_Control : MonoBehaviour
                 }
             }
 
-            else if (!isFirstDialogue && isSecondDialogue && !isFinalDialogue && !isDialogueStarted) 
+            else if (!isFirstDialogue && isSecondDialogue && !isFinalDialogue && !isDialogueStarted)
             {
                 isDialogueStarted = true;
 
@@ -75,7 +77,7 @@ public class NPC_Dialogue_Control : MonoBehaviour
 
                 }
             }
-            
+
             else if (!isFirstDialogue && !isSecondDialogue && isFinalDialogue && !isDialogueStarted)
             {
                 isDialogueStarted = true;

@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.InputSystem;
+using UnityEditor.Rendering.LookDev;
 
 public class DialogueController : MonoBehaviour
 {
@@ -21,19 +23,20 @@ public class DialogueController : MonoBehaviour
         StartDialogue();
     }
 
-    private void Update()
+    /// <summary>
+    /// Skip Dialogue by pressing left click
+    /// </summary>
+    /// <param name="context"></param>
+    public void SkipDialogue()
     {
-        if (Input.GetMouseButtonDown(0)) //Button isn't working
+        if (textComponent.text == dialogueText[index])
         {
-            if (textComponent.text == dialogueText[index])
-            {
-                NextLine();
-            }
-            else
-            {
-                StopAllCoroutines();
-                textComponent.text = dialogueText[index];
-            }
+            NextLine();
+        }
+        else
+        {
+            StopAllCoroutines();
+            textComponent.text = dialogueText[index];
         }
     }
 

@@ -3051,7 +3051,19 @@ MonoBehaviour:
     m_ActionId: 32b35790-4ed0-4e9a-aa41-69ac6d629449
     m_ActionName: 'UI/Point[/Mouse/position]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1477114549}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: OnInteractDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3c7022bf-7922-4f7c-a998-c437916075ad
     m_ActionName: 'UI/Click[/Mouse/leftButton]'
   - m_PersistentCalls:
@@ -3444,9 +3456,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffadc4c4454512549b3f1cf7bdf4b553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
-  inventoryMenu: {fileID: 0}
-  item1CountText: {fileID: 0}
-  item2CountText: {fileID: 0}
+  inventoryMenu: {fileID: 511754435}
+  item1CountText: {fileID: 1601872479}
+  item2CountText: {fileID: 224107878}
 --- !u!114 &1596821046
 MonoBehaviour:
   m_ObjectHideFlags: 0

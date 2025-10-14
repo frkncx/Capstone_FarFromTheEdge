@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class NPC_Dialogue_Control : MonoBehaviour
@@ -45,7 +46,7 @@ public class NPC_Dialogue_Control : MonoBehaviour
         //This full logic intention is to check if it is the first dialogue (giving the quest),
         //the second dialogue (having two buttons in the end to check if quest is completed or not)
         //and the final dialogue that is the one the NPC will keep repeating)
-        if (Input.GetKeyDown(KeyCode.E) && playerHit) //It was supposed to have and "Press E" here as well, but I didn't figure out how to do it.
+        if (Keyboard.current.eKey.wasPressedThisFrame && playerHit) //It was supposed to have and "Press E" here as well, but I didn't figure out how to do it.
         {
             dialogueBox.SetActive(true);
 
@@ -85,6 +86,8 @@ public class NPC_Dialogue_Control : MonoBehaviour
             }
 
         }
+
+        ShowDialogue(); //Check if player can start the interaction because it is near
     }
 
     public void QuestUnfinished() //Button to use that, must be added yet
@@ -97,11 +100,6 @@ public class NPC_Dialogue_Control : MonoBehaviour
     {
         //Remove items
         isQuestComplete = true;
-    }
-
-    void FixedUpdate()
-    {
-        ShowDialogue(); //Check if player can start the interaction because it is near
     }
 
     void ShowDialogue() //A collider check without having a collider

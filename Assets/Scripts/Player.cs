@@ -188,7 +188,7 @@ public class Player : MonoBehaviour
     {
         if (context.action.inProgress && activeDialogue != null)
         {
-            activeDialogue.SkipDialogue();
+            //activeDialogue.SkipDialogue();
         }
     }
 }

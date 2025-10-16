@@ -47,7 +47,7 @@ public class NPC_Dialogue_Control : MonoBehaviour
         //the second dialogue (having two buttons in the end to check if quest is completed or not)
         //and the final dialogue that is the one the NPC will keep repeating)
 
-        if (playerHit) //It was supposed to have and "Press E" here as well, but I didn't figure out how to do it.
+        if (Keyboard.current.eKey.wasPressedThisFrame && playerHit) //It was supposed to have and "Press E" here as well, but I didn't figure out how to do it.
         {
             dialogueBox.SetActive(true);
 

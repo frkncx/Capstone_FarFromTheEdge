@@ -46,8 +46,12 @@ public class NPC_Dialogue_Control : MonoBehaviour
         //This full logic intention is to check if it is the first dialogue (giving the quest),
         //the second dialogue (having two buttons in the end to check if quest is completed or not)
         //and the final dialogue that is the one the NPC will keep repeating)
+<<<<<<< Updated upstream
 
         if (playerHit) //It was supposed to have and "Press E" here as well, but I didn't figure out how to do it.
+=======
+        if (Keyboard.current.eKey.wasPressedThisFrame && playerHit)
+>>>>>>> Stashed changes
         {
             dialogueBox.SetActive(true);
 

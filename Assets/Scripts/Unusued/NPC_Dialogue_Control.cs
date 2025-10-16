@@ -41,13 +41,8 @@ public class NPC_Dialogue_Control : MonoBehaviour
 
     public void OnTriggerDialogue(InputAction.CallbackContext context)
     {
-        //IMPORTANT: This is where the dialogue is triggered. Check if we are doing with the input key or by distance, etc.
-        //THE LOGIC BELOW NEEDS TO BE TESTED YET, but since I didn't get to use E for it, I wasn't able to test.
-        //This full logic intention is to check if it is the first dialogue (giving the quest),
-        //the second dialogue (having two buttons in the end to check if quest is completed or not)
-        //and the final dialogue that is the one the NPC will keep repeating)
-
-        if (Keyboard.current.eKey.wasPressedThisFrame && playerHit) //It was supposed to have and "Press E" here as well, but I didn't figure out how to do it.
+        // Press E
+        if (Keyboard.current.eKey.wasPressedThisFrame && playerHit)
         {
             dialogueBox.SetActive(true);
 

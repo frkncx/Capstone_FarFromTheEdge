@@ -8,11 +8,7 @@ public class GameManager : Singleton<GameManager>
 {
     public int Item1Count { get; set; } = 0;
     public int Item2Count { get; set; } = 0;
-
-    private void Update()
-    {
-
-    }
+    public bool QuestItem1Collected { get; set; } = false;
 
     /// <summary>
     /// Pause the Game on pressing ESC, Attached to Player Input 
@@ -40,4 +36,10 @@ public class GameManager : Singleton<GameManager>
             Time.timeScale = 1f;
         }
     }
+
+    #region First Area
+
+    
+
+    #endregion
 }

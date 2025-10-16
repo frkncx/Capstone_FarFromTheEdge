@@ -184,12 +184,12 @@ public class Player : MonoBehaviour
     /// Control Skip Dialogue here
     /// </summary>
     /// <param name="context"></param>
-    public void OnSkipDialogue(InputAction.CallbackContext context)
-    {
-        if (context.action.inProgress && activeDialogue != null)
-        {
-            //activeDialogue.SkipDialogue();
-        }
-    }
+    //public void OnSkipDialogue(InputAction.CallbackContext context)
+    //{
+    //    if (context.action.inProgress && activeDialogue != null)
+    //    {
+    //        //activeDialogue.SkipDialogue();
+    //    }
+    //}
 }
 

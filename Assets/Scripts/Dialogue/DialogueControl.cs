@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class DialogueControl : MonoBehaviour
@@ -9,25 +10,21 @@ public class DialogueControl : MonoBehaviour
 
 
     [Header("Collision settings")] //This I got from my other dialogue videos
-
     public float dialogueRange;
     public LayerMask playerLayer;
     private Vector3 position;
     bool playerHit = false;
 
-    void FixedUpdate()
+    void Update()
     {
         if (!dialogueFinished)
         {
             ShowDialogue(); //Check if player can start the interaction because it is near
 
-
-            if (playerHit && !dialogueStarted)
+            if (Keyboard.current.eKey.wasPressedThisFrame && playerHit && !dialogueStarted)
             {
                 dialogueBox.SetActive(true);
                 dialogueStarted = false;
-
-
             }
         }
     }
@@ -45,7 +42,6 @@ public class DialogueControl : MonoBehaviour
 
             //Make it popup the E to talk
         }
-
         else
         {
             playerHit = false;

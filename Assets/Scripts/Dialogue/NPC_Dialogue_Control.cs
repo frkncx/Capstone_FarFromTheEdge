@@ -39,19 +39,15 @@ public class NPC_Dialogue_Control : MonoBehaviour
         isDialogueStarted = false;
     }
 
-    public void OnTriggerDialogue(InputAction.CallbackContext context)
+    void Update()
     {
         //IMPORTANT: This is where the dialogue is triggered. Check if we are doing with the input key or by distance, etc.
         //THE LOGIC BELOW NEEDS TO BE TESTED YET, but since I didn't get to use E for it, I wasn't able to test.
         //This full logic intention is to check if it is the first dialogue (giving the quest),
         //the second dialogue (having two buttons in the end to check if quest is completed or not)
         //and the final dialogue that is the one the NPC will keep repeating)
-<<<<<<< Updated upstream
 
-        if (playerHit) //It was supposed to have and "Press E" here as well, but I didn't figure out how to do it.
-=======
-        if (Keyboard.current.eKey.wasPressedThisFrame && playerHit)
->>>>>>> Stashed changes
+        if (Keyboard.current.eKey.wasPressedThisFrame && playerHit) //It was supposed to have and "Press E" here as well, but I didn't figure out how to do it.
         {
             dialogueBox.SetActive(true);
 
@@ -59,8 +55,8 @@ public class NPC_Dialogue_Control : MonoBehaviour
             {
                 isDialogueStarted = true;
                 firstDialogue.enabled = true;
-
-                if (firstDialogue.isDialogueOver)
+                
+                if(firstDialogue.isDialogueOver)
                 {
                     isFirstDialogue = false;
                     isSecondDialogue = true;
@@ -68,7 +64,7 @@ public class NPC_Dialogue_Control : MonoBehaviour
                 }
             }
 
-            else if (!isFirstDialogue && isSecondDialogue && !isFinalDialogue && !isDialogueStarted)
+            else if (!isFirstDialogue && isSecondDialogue && !isFinalDialogue && !isDialogueStarted) 
             {
                 isDialogueStarted = true;
 
@@ -81,7 +77,7 @@ public class NPC_Dialogue_Control : MonoBehaviour
 
                 }
             }
-
+            
             else if (!isFirstDialogue && !isSecondDialogue && isFinalDialogue && !isDialogueStarted)
             {
                 isDialogueStarted = true;
@@ -91,6 +87,8 @@ public class NPC_Dialogue_Control : MonoBehaviour
             }
 
         }
+
+        ShowDialogue(); //Check if player can start the interaction because it is near
     }
 
     public void QuestUnfinished() //Button to use that, must be added yet
@@ -103,11 +101,6 @@ public class NPC_Dialogue_Control : MonoBehaviour
     {
         //Remove items
         isQuestComplete = true;
-    }
-
-    void FixedUpdate()
-    {
-        ShowDialogue(); //Check if player can start the interaction because it is near
     }
 
     void ShowDialogue() //A collider check without having a collider

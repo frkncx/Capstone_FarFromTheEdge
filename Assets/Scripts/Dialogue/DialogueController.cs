@@ -27,19 +27,16 @@ public class DialogueController : MonoBehaviour
     /// Skip Dialogue by pressing left click
     /// </summary>
     /// <param name="context"></param>
-    public void OnInteractDialogue(InputAction.CallbackContext context)
+    public void SkipDialogue()
     {
-        if (context.action.inProgress)
+        if (textComponent.text == dialogueText[index])
         {
-            if (textComponent.text == dialogueText[index])
-            {
-                NextLine();
-            }
-            else
-            {
-                StopAllCoroutines();
-                textComponent.text = dialogueText[index];
-            }
+            NextLine();
+        }
+        else
+        {
+            StopAllCoroutines();
+            textComponent.text = dialogueText[index];
         }
     }
 

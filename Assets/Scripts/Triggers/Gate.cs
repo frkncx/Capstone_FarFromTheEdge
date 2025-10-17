@@ -10,7 +10,7 @@ public class Gate : MonoBehaviour
     private void Update()
     {
         ToggleGate();
-    }
+   }
 
     public void ToggleGate()
     {
@@ -20,4 +20,4 @@ public class Gate : MonoBehaviour
             animator.SetTrigger(openParam);
         }
     }
-}
+} 

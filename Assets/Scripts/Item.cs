@@ -4,7 +4,7 @@ public class Item : MonoBehaviour
 {
     // Stats for the items, modify them in the inspector
     [SerializeField] protected float rotateSpeed = 90f;
-    [SerializeField] protected string itemName = "Item";
+    [SerializeField] protected string itemName;
 
     // Visual cue popup
     [SerializeField] protected GameObject EVisualCue;

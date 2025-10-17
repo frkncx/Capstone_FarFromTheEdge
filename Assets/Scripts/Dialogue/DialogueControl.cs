@@ -21,7 +21,7 @@ public class DialogueControl : MonoBehaviour
         {
             ShowDialogue(); //Check if player can start the interaction because it is near
 
-            if (Keyboard.current.eKey.wasPressedThisFrame && playerHit && !dialogueStarted)
+            if (playerHit && !dialogueStarted) //Keyboard.current.eKey.wasPressedThisFrame && 
             {
                 dialogueBox.SetActive(true);
                 dialogueStarted = false;

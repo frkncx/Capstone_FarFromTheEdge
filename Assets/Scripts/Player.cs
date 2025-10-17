@@ -160,6 +160,16 @@ public class Player : MonoBehaviour
             if (interactable is Item item)
                 item.ShowCue();
         }
+
+
+        // Check the end of the game
+        if (collision.gameObject.CompareTag("EndGameTrigger"))
+        {
+            // Trigger endgame sequence
+            Debug.Log("Endgame Triggered!");
+            // You can call your endgame method here
+            GameManager.Instance.GameWon();
+        }
     }
 
     /// <summary>

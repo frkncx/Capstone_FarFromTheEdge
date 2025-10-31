@@ -15,6 +15,10 @@ public class GameManager : Singleton<GameManager>
     // Effects
     public Image transitionCanvas;
 
+
+    //TextSpeed for menu settings
+    public float textSpeed = 0.01f;
+
     /// <summary>
     /// Pause the Game on pressing ESC, Attached to Player Input 
     /// </summary>
@@ -86,4 +90,8 @@ public class GameManager : Singleton<GameManager>
     }
 
     #endregion
+
+
+
+
 }

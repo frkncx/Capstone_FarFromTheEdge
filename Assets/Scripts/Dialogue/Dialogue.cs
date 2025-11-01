@@ -32,9 +32,9 @@ public class Dialogue : MonoBehaviour
         characterName[index].SetActive(true);
 
         //Type the first text
-        text = textComponent[index].text;
+        string text = textComponent[index].text;
         textComponent[index].text = "";
-        StopAllCoroutines();
+        //StopAllCoroutines();
         StartCoroutine(TypeLine(text));
     }
 
@@ -59,7 +59,6 @@ public class Dialogue : MonoBehaviour
         {
             index++;
             DeactivateTexts();
-
 
             characterSprite.sprite = sprites[index];
             characterName[index].SetActive(true);

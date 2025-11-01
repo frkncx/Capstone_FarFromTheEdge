@@ -19,9 +19,6 @@ public class Player : MonoBehaviour
     [Header("Item Utils")]
     private IPlayerInteractable nearbyInteractable;
 
-    // Dialogue Support
-    DialogueController activeDialogue;
-
     // Animation Utils
     private static readonly int collectParam = Animator.StringToHash("PlayerCollect");
     private bool isPaused = false;

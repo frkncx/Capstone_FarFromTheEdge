@@ -84,12 +84,10 @@ public class Dialogue : MonoBehaviour
     /// <returns></returns>
     IEnumerator TypeLine(string text)
     {
-        GameManager manager = GameManager.Instance;
-
         foreach (char c in text.ToCharArray())
         {
             textComponent[index].text += c;
-            yield return new WaitForSeconds(manager.textSpeed);
+            yield return new WaitForSeconds(GameManager.Instance.textSpeed);
         }
     }
 }

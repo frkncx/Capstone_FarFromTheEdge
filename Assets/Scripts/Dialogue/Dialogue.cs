@@ -32,8 +32,9 @@ public class Dialogue : MonoBehaviour
         characterName[index].SetActive(true);
 
         //Type the first text
-        string text = textComponent[index].text;
+        text = textComponent[index].text;
         textComponent[index].text = "";
+        StopAllCoroutines();
         StartCoroutine(TypeLine(text));
     }
 
@@ -45,7 +46,7 @@ public class Dialogue : MonoBehaviour
             dialogueText[i].SetActive(false);
         }
 
-        for (int i = 0;i < characterName.Length - 1;i++)
+        for (int i = 0;i < characterName.Length - 1; i++)
         {
             characterName[i].SetActive(false);
         }

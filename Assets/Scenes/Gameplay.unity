@@ -28996,6 +28996,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5203444809459813188, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
+      propertyPath: characterName.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5203444809459813188, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
       propertyPath: 'dialogueText.Array.data[4]'
       value: 
       objectReference: {fileID: 723100759}

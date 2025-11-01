@@ -27,14 +27,13 @@ public class Dialogue : MonoBehaviour
         //Activate first text
         DeactivateTexts();
         dialogueText[index].SetActive(true);
-        
+
         characterSprite.sprite = sprites[index];
         characterName[index].SetActive(true);
 
         //Type the first text
-        string text = textComponent[index].text;
+        text = textComponent[index].text;
         textComponent[index].text = "";
-        //StopAllCoroutines();
         StartCoroutine(TypeLine(text));
     }
 
@@ -46,7 +45,7 @@ public class Dialogue : MonoBehaviour
             dialogueText[i].SetActive(false);
         }
 
-        for (int i = 0;i < characterName.Length - 1; i++)
+        for (int i = 0; i < characterName.Length - 1; i++)
         {
             characterName[i].SetActive(false);
         }
@@ -55,24 +54,33 @@ public class Dialogue : MonoBehaviour
     //Function to call the next text
     public void NextText()
     {
-        if (index < dialogueText.Length - 1)
+        if (text == textComponent[index].text)
         {
-            index++;
-            DeactivateTexts();
+            if (index < dialogueText.Length - 1)
+            {
+                index++;
+                DeactivateTexts();
 
-            characterSprite.sprite = sprites[index];
-            characterName[index].SetActive(true);
-            
-            dialogueText[index].SetActive(true);
-            string text = textComponent[index].text;
-            textComponent[index].text = "";
-            StartCoroutine(TypeLine(text));
 
+                characterSprite.sprite = sprites[index];
+                characterName[index].SetActive(true);
+
+                dialogueText[index].SetActive(true);
+                text = textComponent[index].text;
+                textComponent[index].text = "";
+                StartCoroutine(TypeLine(text));
+
+            }
+            else if (index == dialogueText.Length - 1)
+            {
+                control.EndDialogue();
+                StopAllCoroutines();
+            }
         }
-        else if (index == dialogueText.Length - 1)
+
+        else
         {
-            control.EndDialogue();
-            StopAllCoroutines();
+            return;
         }
     }
 

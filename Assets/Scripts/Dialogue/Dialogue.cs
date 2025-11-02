@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
 
 
 public class Dialogue : MonoBehaviour
@@ -52,35 +53,37 @@ public class Dialogue : MonoBehaviour
     }
 
     //Function to call the next text
-    public void NextText()
+    public void OnNextText(InputAction.CallbackContext context)
     {
-        if (text == textComponent[index].text)
+        if (context.performed)
         {
-            if (index < dialogueText.Length - 1)
+            if (text == textComponent[index].text)
             {
-                index++;
-                DeactivateTexts();
+                if (index < dialogueText.Length - 1)
+                {
+                    index++;
+                    DeactivateTexts();
 
 
-                characterSprite.sprite = sprites[index];
-                characterName[index].SetActive(true);
+                    characterSprite.sprite = sprites[index];
+                    characterName[index].SetActive(true);
 
-                dialogueText[index].SetActive(true);
-                text = textComponent[index].text;
-                textComponent[index].text = "";
-                StartCoroutine(TypeLine(text));
+                    dialogueText[index].SetActive(true);
+                    text = textComponent[index].text;
+                    textComponent[index].text = "";
+                    StartCoroutine(TypeLine(text));
 
+                }
+                else if (index == dialogueText.Length - 1)
+                {
+                    control.EndDialogue();
+                    StopAllCoroutines();
+                }
             }
-            else if (index == dialogueText.Length - 1)
+            else
             {
-                control.EndDialogue();
-                StopAllCoroutines();
+                return;
             }
-        }
-
-        else
-        {
-            return;
         }
     }
 

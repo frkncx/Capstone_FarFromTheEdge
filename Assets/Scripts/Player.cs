@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
     /// Called in Player's "Player Input" Component to move
     /// </summary>
     /// <param name="context"></param>
-    public void OnMove(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    public void OnMove(InputAction.CallbackContext context)
     {
         if (context.action.inProgress)
         {

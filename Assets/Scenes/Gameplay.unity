@@ -5859,6 +5859,17 @@ RectTransform:
   m_AnchoredPosition: {x: 710, y: -446.06}
   m_SizeDelta: {x: -54.59503, y: 30.500488}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &324883341 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5203444809459813188, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
+  m_PrefabInstance: {fileID: 7790991199043608821}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c37c0843654b054e96b2560ebe845d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dialogue
 --- !u!1 &327069679
 GameObject:
   m_ObjectHideFlags: 0
@@ -17623,13 +17634,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 928112327}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2899948, y: -0.24687928, z: 0.07770385, w: 0.9213663}
+  m_LocalRotation: {x: 0.24115783, y: -0.25062278, z: 0.064618014, w: 0.93533725}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 34.942, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 28.915, y: -30, z: 0}
 --- !u!43 &928900038
 Mesh:
   m_ObjectHideFlags: 0
@@ -23199,11 +23210,15 @@ MonoBehaviour:
     m_ActionId: 6269fb51-1e74-41b8-a88c-9eae5e76313d
     m_ActionName: 'UI/Pause[/Keyboard/escape]'
   - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3afa341d-911a-47b3-a247-eed86819546a
+    m_ActionName: 'UI/Inventory[/Keyboard/q]'
+  - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 751681669}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: ToggleInventoryMenu
-        m_Mode: 1
+      - m_Target: {fileID: 324883341}
+        m_TargetAssemblyTypeName: Dialogue, Assembly-CSharp
+        m_MethodName: OnNextText
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -23212,8 +23227,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 3afa341d-911a-47b3-a247-eed86819546a
-    m_ActionName: 'UI/Inventory[/Keyboard/q]'
+    m_ActionId: 7375acd6-58ad-470f-9013-4aa8545c38aa
+    m_ActionName: 'UI/SkipDialogue[/Keyboard/anyKey]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -34207,7 +34222,6 @@ SceneRoots:
   - {fileID: 1477114544}
   - {fileID: 751681668}
   - {fileID: 1589336972}
-  - {fileID: 1879144666}
   - {fileID: 464838146}
   - {fileID: 1927250293}
   - {fileID: 1953622075}
@@ -34225,3 +34239,4 @@ SceneRoots:
   - {fileID: 1531352011}
   - {fileID: 939637975}
   - {fileID: 7790991199043608821}
+  - {fileID: 1879144666}

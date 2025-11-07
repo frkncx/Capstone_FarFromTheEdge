@@ -8,7 +8,6 @@ public class DialogueControl : MonoBehaviour
     bool dialogueStarted = false;
     bool dialogueFinished = false;
 
-
     [Header("Collision settings")] //This I got from my other dialogue videos
     public float dialogueRange;
     public LayerMask playerLayer;
@@ -21,7 +20,7 @@ public class DialogueControl : MonoBehaviour
         {
             ShowDialogue(); //Check if player can start the interaction because it is near
 
-            if (playerHit && !dialogueStarted) //Keyboard.current.eKey.wasPressedThisFrame && 
+            if (playerHit && !dialogueStarted && Keyboard.current.eKey.wasPressedThisFrame)
             {
                 dialogueBox.SetActive(true);
                 dialogueStarted = false;
@@ -39,8 +38,6 @@ public class DialogueControl : MonoBehaviour
             playerHit = true;
             Debug.Log("Player can dialogue");
             Debug.Log(hit);
-
-            //Make it popup the E to talk
         }
         else
         {
@@ -50,6 +47,7 @@ public class DialogueControl : MonoBehaviour
 
     public void EndDialogue()
     {
+        GameManager.Instance.IsPlayedPaused = false;
         dialogueBox.SetActive(false);
         dialogueFinished = true;
     }

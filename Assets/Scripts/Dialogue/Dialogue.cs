@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
 
-
 public class Dialogue : MonoBehaviour
 {
     public GameObject[] dialogueText;
@@ -59,11 +58,12 @@ public class Dialogue : MonoBehaviour
         {
             if (text == textComponent[index].text)
             {
+                GameManager.Instance.IsPlayedPaused = true;
+
                 if (index < dialogueText.Length - 1)
                 {
                     index++;
                     DeactivateTexts();
-
 
                     characterSprite.sprite = sprites[index];
                     characterName[index].SetActive(true);

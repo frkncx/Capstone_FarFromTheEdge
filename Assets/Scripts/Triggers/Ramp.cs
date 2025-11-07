@@ -13,7 +13,7 @@ public class Ramp : MonoBehaviour
 
     public void ToggleGate()
     {
-        if (GameManager.Instance.Item1Count == 3 && GameManager.Instance.Item2Count == 3 && !isOpen)
+        if (GameManager.Instance.Area2Completed && !isOpen)
         {
             isOpen = true;
             animator.SetTrigger(openRampParam);

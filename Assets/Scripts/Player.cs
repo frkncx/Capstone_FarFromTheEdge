@@ -116,7 +116,12 @@ public class Player : MonoBehaviour
             animator.SetTrigger(collectParam);
             nearbyInteractable.OnPlayerInteraction(this);
 
-            nearbyInteractable = null;
+            // Only clear for objects that are one-time (collectibles)
+            if (nearbyInteractable is Item)
+            {
+                nearbyInteractable = null;
+            }
+
             // Resume Pause State (Number corresponds to collect animation time)
             StartCoroutine(ResumeAfterPause(0.7540984f));
         }

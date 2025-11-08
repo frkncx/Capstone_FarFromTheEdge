@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     public Animator animator;
     bool isActive = true;
 
-    // Equipment items in the inventory menu
+    // Equipment items in the equipment menu
     [SerializeField]
     private List<GameObject> EquipmentItems;
 
@@ -64,10 +64,10 @@ public class UIManager : MonoBehaviour
             EquipmentItems[0].SetActive(true);
         }
 
-        //if (GameManager.Instance.QuestItem2Collected)
-        //{
-        //    QuestItems[1].SetActive(true);
-        //}
+        if (GameManager.Instance.MagicItem == 1)
+        {
+            EquipmentItems[1].SetActive(true);
+        }
     }
 
     void UpdateSlots()

@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
@@ -7,6 +6,10 @@ using UnityEngine.InputSystem;
 
 public class Dialogue : MonoBehaviour
 {
+    // change starting points based on quest state
+    public int startIndexInProgressPhase = 4;
+    public int startIndexInCompletedPhase = 5;
+
     public GameObject[] dialogueText;
     public TextMeshProUGUI[] textComponent;
 
@@ -18,89 +21,121 @@ public class Dialogue : MonoBehaviour
     public int index = 0;
 
     public DialogueControl control;
-
+    private bool isTyping = false;
     private string text;
+    private Coroutine typingCoroutine;
 
-    //Start the dialogue and type the first text already
-    public void OnEnable()
+    // Variables to handle dialogue lines per quest stage
+    int startLinePerQuestStage = 0;
+    int endLinePerQuestStage = 0;
+
+    public void StartQuestDialogue(Quest quest)
     {
-        //Activate first text
+        // Depending on the quest state, start from different lines
+        switch (quest.state)
+        {
+            case QuestState.NotStarted:
+                startLinePerQuestStage = 0;
+                endLinePerQuestStage = startIndexInProgressPhase - 1;
+                break;
+            case QuestState.InProgress:
+                startLinePerQuestStage = startIndexInProgressPhase;
+                endLinePerQuestStage = startIndexInCompletedPhase - 1;
+                break;
+            case QuestState.Completed:
+                startLinePerQuestStage = startIndexInCompletedPhase;
+                endLinePerQuestStage = dialogueText.Length - 1;
+                break;
+            default:
+                startLinePerQuestStage = 0;
+                endLinePerQuestStage = startIndexInProgressPhase - 1;
+                break;
+        }
+        index = startLinePerQuestStage;
+
+        // visuals
         DeactivateTexts();
         dialogueText[index].SetActive(true);
-
         characterSprite.sprite = sprites[index];
         characterName[index].SetActive(true);
 
-        //Type the first text
+        // Start typing text
         text = textComponent[index].text;
         textComponent[index].text = "";
-        StartCoroutine(TypeLine(text));
+        typingCoroutine = StartCoroutine(TypeLine(text));
     }
 
-    //Deactivate all texts to get to the next one correctly
+    // Deactivate all texts to get to the next one correctly
     public void DeactivateTexts()
     {
-        for (int i = 0; i < dialogueText.Length - 1; i++)
+        for (int i = 0; i < dialogueText.Length; i++)
         {
             dialogueText[i].SetActive(false);
         }
 
-        for (int i = 0; i < characterName.Length - 1; i++)
+        for (int i = 0; i < characterName.Length; i++)
         {
             characterName[i].SetActive(false);
         }
     }
 
-    //Function to call the next text
+    // Function to call the next text
     public void OnNextText(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            if (text == textComponent[index].text)
+            if (isTyping)
             {
-                GameManager.Instance.IsPlayedPaused = true;
-
-                if (index < dialogueText.Length - 1)
-                {
-                    index++;
-                    DeactivateTexts();
-
-                    characterSprite.sprite = sprites[index];
-                    characterName[index].SetActive(true);
-
-                    dialogueText[index].SetActive(true);
-                    text = textComponent[index].text;
-                    textComponent[index].text = "";
-                    StartCoroutine(TypeLine(text));
-
-                }
-                else if (index == dialogueText.Length - 1)
-                {
-                    control.EndDialogue();
-                    StopAllCoroutines();
-                }
-            }
-            else
-            {
+                StopCoroutine(typingCoroutine);
+                textComponent[index].text = text;
+                isTyping = false;
                 return;
             }
+
+            GameManager.Instance.IsPlayedPaused = true;
+
+            if (index < endLinePerQuestStage)
+            {
+                index++;
+                DeactivateTexts();
+
+                characterSprite.sprite = sprites[index];
+                characterName[index].SetActive(true);
+                dialogueText[index].SetActive(true);
+
+                text = textComponent[index].text;
+                textComponent[index].text = "";
+                typingCoroutine = StartCoroutine(TypeLine(text));
+            }
+            else //if (index == dialogueText.Length - 1)
+            {
+                control.EndDialogue();
+                StopAllCoroutines();
+            }
+        }
+        else
+        {
+            return;
         }
     }
 
-
     /// <summary>
-    /// Types the text character by character using the text speed in the game manager. The text speed is in the game manager so it can be changed in the settings later.
+    /// Types the text character by character using the text speed in the game manager.
+    /// The text speed is in the game manager so it can be changed in the settings later.
     /// </summary>
-    /// <param name="text"> this is a temporary one just so we can write the text up in the inspector and it will not be cut out </param>
-    /// <returns></returns>
+    /// <param name="text">temporary one just so we can write the text up in the inspector and it will not be cut out</param>
     IEnumerator TypeLine(string text)
     {
+        isTyping = true;
+        textComponent[index].text = "";
+
         foreach (char c in text.ToCharArray())
         {
             textComponent[index].text += c;
             yield return new WaitForSeconds(GameManager.Instance.textSpeed);
         }
+
+
+        isTyping = false;
     }
 }
-
-

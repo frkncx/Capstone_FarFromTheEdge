@@ -7,14 +7,17 @@ using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
-    // Area 2 items 
+    // Area 2 UTILS 
     public int Item1Count { get; set; } = 0;
     public int Item2Count { get; set; } = 0;
 
-    // Area 3 Items
+    // Area 3 UTILS
     public int Item3Count { get; set; } = 0;
+    public bool QuestCompletedArea3 { get; set; } = false;
+    public int MagicItem { get; set; } = 0;
+    public bool Quest1ReadytoComplete { get; set; } = false;
 
-    // area 1 item
+    // area 1 UTILS
     public bool QuestItem1Collected { get; set; } = false;
 
     
@@ -73,6 +76,22 @@ public class GameManager : Singleton<GameManager>
             Pedestal2.GetComponent<Pedestal>().PedestalCompleted)
         {
             Area2Completed = true;
+        }
+    }
+
+    #endregion
+
+    #region Third Area
+
+    public bool CheckArea3Quest()
+    {
+        if (Item3Count >= 3)
+        {
+            return QuestCompletedArea3 = true;
+        }
+        else
+        {
+            return QuestCompletedArea3 = false;
         }
     }
 

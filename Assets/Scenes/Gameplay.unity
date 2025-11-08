@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6865139}
   m_Layer: 0
-  m_Name: Eric Preventors
+  m_Name: Eric Preventers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15780,7 +15780,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   inventoryMenu: {fileID: 1074577389}
   animator: {fileID: 1074577393}
-  EquipmentItems: []
+  EquipmentItems:
+  - {fileID: 345145101}
+  - {fileID: 1039711814}
   item1Count: {fileID: 1601872479}
   item2Count: {fileID: 224107878}
   Item3Count: {fileID: 434275986}
@@ -19403,7 +19405,7 @@ Transform:
   m_GameObject: {fileID: 1081603381}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 53.4, y: 9.08, z: -7.1}
+  m_LocalPosition: {x: 53.3, y: 8, z: -6.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23396,7 +23398,7 @@ Transform:
   m_GameObject: {fileID: 1477114542}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.4, y: 5.08, z: -2.1}
+  m_LocalPosition: {x: 53.3, y: 4, z: -1.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23801,7 +23803,7 @@ Transform:
   m_GameObject: {fileID: 1497726688}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 53.4, y: 9.08, z: -7.1}
+  m_LocalPosition: {x: 53.3, y: 8, z: -6.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30157,7 +30159,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4680103042807426180, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      insertIndex: 6
+      insertIndex: -1
       addedObject: {fileID: 723100762}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
@@ -34102,11 +34104,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 072398dd3ff0844418958350ac40426b, type: 3}
---- !u!1 &3325601385385614089 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4772058450329123836, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-  m_PrefabInstance: {fileID: 7790991199043608821}
-  m_PrefabAsset: {fileID: 0}
 --- !u!23 &3351088867094768863
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34307,85 +34304,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 366634876924525996, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: m_text
-      value: Collect 3 Quest Items and take this equipment and bring them to me.
-      objectReference: {fileID: 0}
-    - target: {fileID: 3062850326746020350, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: m_Name
-      value: CrafterText
-      objectReference: {fileID: 0}
-    - target: {fileID: 3062850326746020350, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4553800344265068797, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: m_Name
-      value: PlayerText
-      objectReference: {fileID: 0}
-    - target: {fileID: 4553800344265068797, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4664372524144460339, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: m_Name
-      value: PlayerText
-      objectReference: {fileID: 0}
-    - target: {fileID: 4664372524144460339, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4735606695349329868, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4850079057586952728, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
       propertyPath: m_Name
       value: NPC_Crafter
-      objectReference: {fileID: 0}
-    - target: {fileID: 5203444809459813188, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: sprites.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5203444809459813188, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: dialogueText.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5203444809459813188, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: characterName.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5203444809459813188, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: textComponent.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5203444809459813188, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: 'dialogueText.Array.data[4]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5203444809459813188, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: 'characterName.Array.data[0]'
-      value: 
-      objectReference: {fileID: 7790991199043608822}
-    - target: {fileID: 5203444809459813188, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: 'characterName.Array.data[1]'
-      value: 
-      objectReference: {fileID: 3325601385385614089}
-    - target: {fileID: 5203444809459813188, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: 'characterName.Array.data[2]'
-      value: 
-      objectReference: {fileID: 7790991199043608822}
-    - target: {fileID: 5203444809459813188, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: 'characterName.Array.data[3]'
-      value: 
-      objectReference: {fileID: 3325601385385614089}
-    - target: {fileID: 5203444809459813188, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: 'textComponent.Array.data[4]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5947962073648042504, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: m_text
-      value: I need help, what do you have
       objectReference: {fileID: 0}
     - target: {fileID: 6182252338798669883, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -34427,25 +34348,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6529736076175870009, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: m_Name
-      value: CrafterText
-      objectReference: {fileID: 0}
-    - target: {fileID: 6529736076175870009, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 1027915381424381725, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
---- !u!1 &7790991199043608822 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 629725620756742522, guid: 4619e5f17645aff44ae57b4e19dcc5e3, type: 3}
-  m_PrefabInstance: {fileID: 7790991199043608821}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7984617901866690482
 Transform:
   m_ObjectHideFlags: 0
@@ -34567,5 +34474,5 @@ SceneRoots:
   - {fileID: 1798276201}
   - {fileID: 1531352011}
   - {fileID: 939637975}
-  - {fileID: 7790991199043608821}
   - {fileID: 1879144666}
+  - {fileID: 7790991199043608821}

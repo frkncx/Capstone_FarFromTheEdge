@@ -21,18 +21,12 @@ public class Player : MonoBehaviour
 
     // Animation Utils
     private static readonly int collectParam = Animator.StringToHash("PlayerCollect");
-    private bool isPaused = false;
-
-    private void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         // Stop movement when paused
-        if (isPaused)
+        if (GameManager.Instance.IsPlayedPaused)
         {
             rb.linearVelocity = Vector3.zero;
             animator.SetFloat("MoveSpeed", 0f);
@@ -106,7 +100,7 @@ public class Player : MonoBehaviour
     /// <param name="context"></param>
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.action.inProgress && nearbyInteractable != null && !isPaused)
+        if (context.action.inProgress && nearbyInteractable != null && !GameManager.Instance.IsPlayedPaused)
         {
             // If the object was destroyed, ignore
             if (nearbyInteractable == null)
@@ -117,12 +111,17 @@ public class Player : MonoBehaviour
 
             // Interact and initiate collect animation
 
-            isPaused = true;
+            GameManager.Instance.IsPlayedPaused = true;
 
             animator.SetTrigger(collectParam);
             nearbyInteractable.OnPlayerInteraction(this);
 
-            nearbyInteractable = null;
+            // Only clear for objects that are one-time (collectibles)
+            if (nearbyInteractable is Item)
+            {
+                nearbyInteractable = null;
+            }
+
             // Resume Pause State (Number corresponds to collect animation time)
             StartCoroutine(ResumeAfterPause(0.7540984f));
         }
@@ -140,7 +139,7 @@ public class Player : MonoBehaviour
     IEnumerator ResumeAfterPause(float delay)
     {
         yield return new WaitForSeconds(delay);
-        isPaused = false;
+        GameManager.Instance.IsPlayedPaused = false;
     }
 
     /// <summary>
@@ -157,7 +156,6 @@ public class Player : MonoBehaviour
             if (interactable is Item item)
                 item.ShowCue();
         }
-
 
         // Check the end of the game
         if (collision.gameObject.CompareTag("EndGameTrigger"))
@@ -186,17 +184,5 @@ public class Player : MonoBehaviour
     }
 
     #endregion
-
-    /// <summary>
-    /// Control Skip Dialogue here
-    /// </summary>
-    /// <param name="context"></param>
-    //public void OnSkipDialogue(InputAction.CallbackContext context)
-    //{
-    //    if (context.action.inProgress && activeDialogue != null)
-    //    {
-    //        //activeDialogue.SkipDialogue();
-    //    }
-    //}
 }
 

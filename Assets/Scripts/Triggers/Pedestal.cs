@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Pedestal : MonoBehaviour
+public class Pedestal : MonoBehaviour, IPlayerInteractable
 {
     [Header("Pedestal Features")]
     [SerializeField] GameObject[] itemsToDisplay; // items to show on the pedestal
@@ -10,37 +10,15 @@ public class Pedestal : MonoBehaviour
 
     private int collectedCount = 0; // number of items collected
 
-    private void Start()
-    {
-        
-    }
+    public bool PedestalCompleted => AllItemsActive();
 
-    private void Update()
+    private void Start()
     {
         UpdateItemsToShow();
     }
 
     private void UpdateItemsToShow()
     {
-        //For either item1 or item2
-        switch (pedestalType)
-        {
-            case 1:
-                if (GameManager.Instance.Item1Count > collectedCount)
-                {
-                    collectedCount++;
-                }
-                break;
-            case 2:
-                if (GameManager.Instance.Item2Count > collectedCount)
-                {
-                    collectedCount++;
-                }
-                break;
-            default:
-                return;
-        }
-
         // Check each itemDisplay game objects and activate based on collected items
         for (int i = 0; i < itemsToDisplay.Length; i++) 
         { 
@@ -48,34 +26,46 @@ public class Pedestal : MonoBehaviour
         }
     }
 
-    ///// <summary>
-    ///// Utilize the method by adding the item to the pedestal
-    ///// </summary>
-    ///// <param name="player"></param>
-    //public void OnPlayerInteraction(Player player)
-    //{
-    //    // For either item1 or item2
-    //    switch (pedestalType)
-    //    {
-    //        case 1:
-    //            if (GameManager.Instance.Item1Count > 0)
-    //            {
-    //                GameManager.Instance.Item1Count--;
-    //                collectedCount++;
-    //            }
-    //            break;
-    //        case 2:
-    //            if (GameManager.Instance.Item2Count > 0)
-    //            {
-    //                GameManager.Instance.Item2Count--;
-    //                collectedCount++;
-    //            }
-    //            break;
-    //        default:
-    //            return;
-    //    }
-        
-    //    // Use Method here
-    //    UpdateItemsToShow();
-    //}
+    public bool AllItemsActive()
+    {
+        foreach (GameObject item in itemsToDisplay)
+        {
+            if (!item.activeSelf)
+                return false;
+        }
+        return true;
+    }
+
+    /// <summary>
+    /// Utilize the method by adding the item to the pedestal
+    /// </summary>
+    /// <param name="player"></param>
+    public void OnPlayerInteraction(Player player)
+    {
+        // For either item1 or item2
+        switch (pedestalType)
+        {
+            case 1:
+                if (GameManager.Instance.Item1Count > 0)
+                {
+                    GameManager.Instance.Item1Count--;
+                    collectedCount++;
+                }
+                break;
+            case 2:
+                if (GameManager.Instance.Item2Count > 0)
+                {
+                    GameManager.Instance.Item2Count--;
+                    collectedCount++;
+                }
+                break;
+            default:
+                return;
+        }
+
+        // Use Method here
+        UpdateItemsToShow();
+
+        GameManager.Instance.CheckArea2();
+    }
 }

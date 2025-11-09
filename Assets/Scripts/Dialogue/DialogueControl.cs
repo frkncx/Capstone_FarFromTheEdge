@@ -1,56 +1,92 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
+using System.Collections;
 
 public class DialogueControl : MonoBehaviour
 {
+    [Header("Dialogue Settings")]
     public GameObject dialogueBox;
+    public Quest quest;
+
     bool dialogueStarted = false;
-    bool dialogueFinished = false;
+    bool playerHit = false;
+    bool canInteract = true;
 
-
-    [Header("Collision settings")] //This I got from my other dialogue videos
-    public float dialogueRange;
+    [Header("Collision Settings")]
+    public float dialogueRange = 2f;
     public LayerMask playerLayer;
     private Vector3 position;
-    bool playerHit = false;
+
+    private Dialogue dialogueComponent;
+
+    void Awake()
+    {
+        dialogueComponent = dialogueBox.GetComponent<Dialogue>();
+    }
 
     void Update()
     {
-        if (!dialogueFinished)
-        {
-            ShowDialogue(); //Check if player can start the interaction because it is near
+        // Stop interaction if quest is completed
+        if (quest.state == QuestState.Completed && !GameManager.Instance.Quest1ReadytoComplete)
+            return;
 
-            if (playerHit && !dialogueStarted) //Keyboard.current.eKey.wasPressedThisFrame && 
+        ShowDialogue();
+
+        if (playerHit && !dialogueStarted && canInteract && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            GameManager.Instance.IsPlayedPaused = true;
+
+            // check quest state for completion here
+            if (quest.state == QuestState.InProgress && GameManager.Instance.Quest1ReadytoComplete)
             {
-                dialogueBox.SetActive(true);
-                dialogueStarted = false;
+                quest.state = QuestState.Completed; // now show the "completion" dialogue
+                GameManager.Instance.Quest1ReadytoComplete = false;
             }
+
+            dialogueBox.SetActive(true);
+            dialogueStarted = true;
+            canInteract = false;
+
+            // Start the dialogue
+            dialogueComponent.StartQuestDialogue(quest);
+        }
+
+        // Wait for E to be released before re-enabling interaction
+        if (!Keyboard.current.eKey.isPressed && !dialogueStarted)
+        {
+            canInteract = true;
         }
     }
-    void ShowDialogue() //A collider check without having a collider
+
+    void ShowDialogue()
     {
         position = transform.position;
-
         Collider[] hit = Physics.OverlapSphere(position, dialogueRange, playerLayer);
-
-        if (hit.Length != 0)
-        {
-            playerHit = true;
-            Debug.Log("Player can dialogue");
-            Debug.Log(hit);
-
-            //Make it popup the E to talk
-        }
-        else
-        {
-            playerHit = false;
-        }
+        playerHit = hit.Length > 0;
     }
 
     public void EndDialogue()
     {
+        GameManager.Instance.IsPlayedPaused = false;
         dialogueBox.SetActive(false);
-        dialogueFinished = true;
+
+        // Update quest progress
+        if (quest.state == QuestState.NotStarted && dialogueStarted)
+        {
+            quest.state = QuestState.InProgress;
+        }
+        else if (quest.state == QuestState.InProgress && GameManager.Instance.CheckArea3Quest())
+        {
+            GameManager.Instance.Quest1ReadytoComplete = true;
+        }
+        // If currently showing the completion dialogue, then mark complete
+        else if (quest.state == QuestState.Completed && dialogueStarted)
+        {
+            // Quest fully done, give rewards
+            GameManager.Instance.Item3Count = 0;
+            GameManager.Instance.MagicItem += 1;
+        }
+
+        dialogueStarted = false;
     }
 }

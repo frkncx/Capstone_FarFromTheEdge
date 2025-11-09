@@ -5,17 +5,21 @@ using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour
 {
-    // Toggle Menu Itself, not needed rn
-    //[SerializeField]
-    //private GameObject inventoryMenu;
-
-    // Quest items in the inventory menu
+    // Toggle Backpack
     [SerializeField]
-    private List<GameObject> QuestItems;
+    private GameObject inventoryMenu;
+    private static readonly int closeBackPack = Animator.StringToHash("CloseBackpack");
+    private static readonly int openBackPack = Animator.StringToHash("OpenBackpack");
+    public Animator animator;
+    bool isActive = true;
+
+    // Equipment items in the equipment menu
+    [SerializeField]
+    private List<GameObject> EquipmentItems;
 
     // Inventory Item Counts
     [SerializeField]
-    private TMP_Text item1Count, item2Count;
+    private TMP_Text item1Count, item2Count, Item3Count;
 
     // When no items, disable slot game objects
     [SerializeField]
@@ -25,32 +29,45 @@ public class UIManager : MonoBehaviour
     {
         item1Count.text = GameManager.Instance.Item1Count.ToString("D1");
         item2Count.text = GameManager.Instance.Item2Count.ToString("D1");
+        Item3Count.text = GameManager.Instance.Item3Count.ToString("D1");
 
         UpdateQuestItems();
         UpdateSlots();
     }
 
-    //public void ToggleInventoryMenu()
-    //{
-    //    if (inventoryMenu != null)
-    //    {
-    //        bool isActive = inventoryMenu.activeSelf;
-    //        inventoryMenu.SetActive(!isActive);
-    //    }
-    //}
+    public void ToggleInventoryBackpack()
+    {
+        if (inventoryMenu != null)
+        {
+            // Reset both triggers before setting the desired one to avoid overlap
+            animator.ResetTrigger(closeBackPack);
+            animator.ResetTrigger(openBackPack);
+
+            if (isActive)
+            {
+                animator.SetTrigger(closeBackPack);
+                isActive = false;
+            }
+            else
+            {
+                animator.SetTrigger(openBackPack);
+                isActive = true;
+            }
+        }
+    }
 
     void UpdateQuestItems()
     {
         // Add Item Icon to the inventory
         if (GameManager.Instance.QuestItem1Collected)
         {
-            QuestItems[0].SetActive(true);
+            EquipmentItems[0].SetActive(true);
         }
 
-        //if (GameManager.Instance.QuestItem2Collected)
-        //{
-        //    QuestItems[1].SetActive(true);
-        //}
+        if (GameManager.Instance.MagicItem == 1)
+        {
+            EquipmentItems[1].SetActive(true);
+        }
     }
 
     void UpdateSlots()
@@ -72,16 +89,14 @@ public class UIManager : MonoBehaviour
         {
             slots[1].SetActive(true);
         }
-    }
 
-    ///// <summary>
-    ///// This is for the inventory menu button with X on it
-    ///// </summary>
-    //public void QuitInventory()
-    //{
-    //    if (inventoryMenu != null)
-    //    {
-    //        inventoryMenu.SetActive(false);
-    //    }
-    //}
+        if (GameManager.Instance.Item3Count < 1)
+        {
+            slots[2].SetActive(false);
+        }
+        else
+        {
+            slots[2].SetActive(true);
+        }
+    }
 }

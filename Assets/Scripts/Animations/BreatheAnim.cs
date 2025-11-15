@@ -30,6 +30,6 @@ public class BreatheAnim : MonoBehaviour
 
     public void RandomizeTime()
     {
-        randomTime = Random.Range(1.5f, 3f);
+        randomTime = Random.Range(3f, 6f);
     }
 }

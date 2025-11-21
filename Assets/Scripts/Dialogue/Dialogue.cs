@@ -77,8 +77,6 @@ public class Dialogue : MonoBehaviour
         characterSprite.sprite = sprites[0];
         characterName[0].SetActive(true);
 
-        GameManager.Instance.IsPlayedPaused = true;
-
         text = textComponent[0].text;
         textComponent[0].text = "";
         typingCoroutine = StartCoroutine(TypeLine(text));
@@ -103,6 +101,8 @@ public class Dialogue : MonoBehaviour
     {
         if (context.performed)
         {
+            GameManager.Instance.IsPlayedPaused = true;
+
             if (isTyping)
             {
                 StopCoroutine(typingCoroutine);

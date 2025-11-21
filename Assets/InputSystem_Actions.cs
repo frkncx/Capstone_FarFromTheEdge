@@ -159,7 +159,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Next"",
                     ""type"": ""Button"",
                     ""id"": ""b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -1128,7 +1128,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b6afc10d-97b9-4deb-84aa-eda578aa12cf"",
-                    ""path"": ""<Keyboard>/anyKey"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",

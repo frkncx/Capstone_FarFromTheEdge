@@ -77,8 +77,6 @@ public class DialogueControl : MonoBehaviour
         }
         else if (characterType == CharacterType.Player && playerHit && !dialogueStarted && !selfDialogueEventComplete)
         {
-            GameManager.Instance.IsPlayedPaused = true;
-
             dialogueBox.SetActive(true);
             dialogueStarted = true;
 
@@ -96,14 +94,15 @@ public class DialogueControl : MonoBehaviour
         // PLAYER SELF-DIALOGUE ADVANCING
         if (dialogueStarted && characterType == CharacterType.Player)
         {
+            GameManager.Instance.IsPlayedPaused = true;
+
             if (Keyboard.current.eKey.wasPressedThisFrame || Mouse.current.leftButton.wasPressedThisFrame)
             {
-                GameManager.Instance.IsPlayedPaused = true;
                 dialogueComponent.NextText();
             }
         }
 
-        // Wait for E to be released before reenabling interaction
+        // Wait for E to be released before reenabling interaction (for NPCs)
         if (!Keyboard.current.eKey.isPressed && dialogueStarted == false)
         {
             canInteract = true;

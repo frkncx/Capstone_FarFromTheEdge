@@ -22,18 +22,6 @@ public class Pedestal : MonoBehaviour, IPlayerInteractable
         UpdateItemsToShow();
     }
 
-    private void Update()
-    {
-        if (AllItemsActive())
-        {
-            HideCue();
-        }
-        else if (collectedCount > 0)
-        {
-            ShowCue();
-        }
-    }
-
     private void UpdateItemsToShow()
     {
         // Check each itemDisplay game objects and activate based on collected items

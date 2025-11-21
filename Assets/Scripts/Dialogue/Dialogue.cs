@@ -174,6 +174,8 @@ public class Dialogue : MonoBehaviour
     /// <param name="text">temporary one just so we can write the text up in the inspector and it will not be cut out</param>
     IEnumerator TypeLine(string text)
     {
+        GameManager.Instance.IsPlayedPaused = true;
+
         isTyping = true;
         textComponent[index].text = "";
 

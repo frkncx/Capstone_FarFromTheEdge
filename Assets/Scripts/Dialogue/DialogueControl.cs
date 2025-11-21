@@ -70,6 +70,10 @@ public class DialogueControl : MonoBehaviour
 
             // Start the dialogue
             dialogueComponent.StartQuestDialogue(quest);
+
+            var playerInput = GetComponent<PlayerInput>();
+            if (playerInput != null)
+                playerInput.DeactivateInput();
         }
         else if (characterType == CharacterType.Player && playerHit && !dialogueStarted && !selfDialogueEventComplete)
         {
@@ -83,6 +87,10 @@ public class DialogueControl : MonoBehaviour
 
             // Start the dialogue
             dialogueComponent.StartPlayerDialogue();
+
+            var playerInput = GetComponent<PlayerInput>();
+            if (playerInput != null)
+                playerInput.DeactivateInput();
         }
 
         // PLAYER SELF-DIALOGUE ADVANCING
@@ -90,8 +98,8 @@ public class DialogueControl : MonoBehaviour
         {
             if (Keyboard.current.eKey.wasPressedThisFrame || Mouse.current.leftButton.wasPressedThisFrame)
             {
-                dialogueComponent.NextText();
                 GameManager.Instance.IsPlayedPaused = true;
+                dialogueComponent.NextText();
             }
         }
 
@@ -113,6 +121,10 @@ public class DialogueControl : MonoBehaviour
     {
         GameManager.Instance.IsPlayedPaused = false;
         dialogueBox.SetActive(false);
+
+        var playerInput = GetComponent<PlayerInput>();
+        if (playerInput != null)
+            playerInput.ActivateInput();
 
         // Update quest progress
         if (characterType != CharacterType.Player)

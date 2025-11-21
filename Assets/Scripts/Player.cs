@@ -177,6 +177,12 @@ public class Player : MonoBehaviour
             // Tell the item to show its cue if it’s an Item
             if (interactable is Item item)
                 item.ShowCue();
+
+            if (interactable is Pedestal pedestal)
+            {
+                if (!pedestal.PedestalCompleted && GameManager.Instance.Item1Count > 0)
+                    pedestal.ShowCue();
+            }
         }
 
         // Check the end of the game
@@ -200,6 +206,9 @@ public class Player : MonoBehaviour
             // Tell the item to hide its cue if it’s an Item
             if (interactable is Item item)
                 item.HideCue();
+
+            if (interactable is Pedestal pedestal)
+                pedestal.HideCue();
 
             nearbyInteractable = null;
         }

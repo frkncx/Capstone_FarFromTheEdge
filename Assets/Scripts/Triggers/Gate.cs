@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class Gate : MonoBehaviour
 {
     public bool isOpen = false;
-    private static readonly int openParam = Animator.StringToHash("OpenSesame");
+    private static readonly int openParam = Animator.StringToHash("Open");
     public Animator animator;
 
     private void Update()

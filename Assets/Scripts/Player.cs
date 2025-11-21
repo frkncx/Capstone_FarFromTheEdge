@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
     /// <param name="context"></param>
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (context.action.inProgress)
+        if (context.action.inProgress && !GameManager.Instance.IsPlayedPaused)
         {
             moveDirection = context.ReadValue<Vector2>();
         }
@@ -152,7 +152,7 @@ public class Player : MonoBehaviour
         {
             nearbyInteractable = interactable;
 
-            // Tell the item to show its cue if it’s an Item
+            // Tell the item to show its cue if itâ€™s an Item
             if (interactable is Item item)
                 item.ShowCue();
         }
@@ -175,7 +175,7 @@ public class Player : MonoBehaviour
     {
         if (other.TryGetComponent(out IPlayerInteractable interactable))
         {
-            // Tell the item to hide its cue if it’s an Item
+            // Tell the item to hide its cue if itâ€™s an Item
             if (interactable is Item item)
                 item.HideCue();
 

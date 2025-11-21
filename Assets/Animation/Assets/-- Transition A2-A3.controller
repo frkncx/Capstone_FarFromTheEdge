@@ -64,7 +64,7 @@ AnimatorController:
   m_Name: -- Transition A2-A3
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Complete
+  - m_Name: OpenRamp
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -92,7 +92,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Complete
+    m_ConditionEvent: OpenRamp
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6555603602194878894}

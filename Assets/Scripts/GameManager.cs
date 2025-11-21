@@ -9,7 +9,7 @@ public class GameManager : Singleton<GameManager>
 {
     // Area 2 UTILS 
     public int Item1Count { get; set; } = 0;
-    public int Item2Count { get; set; } = 0;
+    //public int Item2Count { get; set; } = 0;
 
     // Area 3 UTILS
     public int Item3Count { get; set; } = 0;
@@ -31,7 +31,7 @@ public class GameManager : Singleton<GameManager>
 
     // 2nd Area Puzzle Completed
     [SerializeField]
-    GameObject Pedestal1, Pedestal2;
+    GameObject Pedestal;
 
     public bool IsPlayedPaused { get; set; } = false;
 
@@ -72,8 +72,7 @@ public class GameManager : Singleton<GameManager>
 
     public void CheckArea2()
     {
-        if (Pedestal1.GetComponent<Pedestal>().PedestalCompleted &&
-            Pedestal2.GetComponent<Pedestal>().PedestalCompleted)
+        if (Pedestal.GetComponent<Pedestal>().PedestalCompleted)
         {
             Area2Completed = true;
         }

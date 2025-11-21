@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
 
     // Inventory Item Counts
     [SerializeField]
-    private TMP_Text item1Count, item2Count, Item3Count;
+    private TMP_Text item1Count, Item3Count;
 
     // When no items, disable slot game objects
     [SerializeField]
@@ -28,7 +28,7 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         item1Count.text = GameManager.Instance.Item1Count.ToString("D1");
-        item2Count.text = GameManager.Instance.Item2Count.ToString("D1");
+        //item2Count.text = GameManager.Instance.Item2Count.ToString("D1");
         Item3Count.text = GameManager.Instance.Item3Count.ToString("D1");
 
         UpdateQuestItems();
@@ -81,22 +81,13 @@ public class UIManager : MonoBehaviour
             slots[0].SetActive(true);
         }
 
-        if (GameManager.Instance.Item2Count < 1)
+        if (GameManager.Instance.Item3Count < 1)
         {
             slots[1].SetActive(false);
         }
         else
         {
             slots[1].SetActive(true);
-        }
-
-        if (GameManager.Instance.Item3Count < 1)
-        {
-            slots[2].SetActive(false);
-        }
-        else
-        {
-            slots[2].SetActive(true);
         }
     }
 }

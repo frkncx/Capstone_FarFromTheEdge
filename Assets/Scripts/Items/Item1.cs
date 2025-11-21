@@ -9,7 +9,8 @@ public class Item1 : Item, IPlayerInteractable
     public void OnPlayerInteraction(Player player)
     {
         Debug.Log($"{itemName} Collected");
-        Destroy(transform.parent.gameObject);
+        Destroy(gameObject);
+        Destroy(EVisualCue);
         GameManager.Instance.Item1Count++;
     }
 }

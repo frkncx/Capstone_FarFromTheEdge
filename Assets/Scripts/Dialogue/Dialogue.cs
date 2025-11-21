@@ -65,6 +65,25 @@ public class Dialogue : MonoBehaviour
         typingCoroutine = StartCoroutine(TypeLine(text));
     }
 
+    public void StartPlayerDialogue()
+    {
+        // Set boundaries for player dialogues
+        startLinePerQuestStage = 0;
+        endLinePerQuestStage = dialogueText.Length - 1;
+
+        index = 0;
+        DeactivateTexts();
+        dialogueText[0].SetActive(true);
+        characterSprite.sprite = sprites[0];
+        characterName[0].SetActive(true);
+
+        GameManager.Instance.IsPlayedPaused = true;
+
+        text = textComponent[0].text;
+        textComponent[0].text = "";
+        typingCoroutine = StartCoroutine(TypeLine(text));
+    }
+
     // Deactivate all texts to get to the next one correctly
     public void DeactivateTexts()
     {
@@ -92,8 +111,6 @@ public class Dialogue : MonoBehaviour
                 return;
             }
 
-            GameManager.Instance.IsPlayedPaused = true;
-
             if (index < endLinePerQuestStage)
             {
                 index++;
@@ -116,6 +133,37 @@ public class Dialogue : MonoBehaviour
         else
         {
             return;
+        }
+    }
+
+    // For Player Dialogue
+    public void NextText()
+    {
+        if (isTyping)
+        {
+            StopCoroutine(typingCoroutine);
+            textComponent[index].text = text;
+            isTyping = false;
+            return;
+        }
+
+        if (index < endLinePerQuestStage)
+        {
+            index++;
+            DeactivateTexts();
+
+            characterSprite.sprite = sprites[index];
+            characterName[index].SetActive(true);
+            dialogueText[index].SetActive(true);
+
+            text = textComponent[index].text;
+            textComponent[index].text = "";
+            typingCoroutine = StartCoroutine(TypeLine(text));
+        }
+        else
+        {
+            control.EndDialogue();
+            StopAllCoroutines();
         }
     }
 

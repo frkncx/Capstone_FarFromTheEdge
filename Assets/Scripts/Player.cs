@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
 
     [Header("Item Utils")]
     private IPlayerInteractable nearbyInteractable;
+    private bool isInteracting = false;
 
     // Animation Utils
     private static readonly int collectParam = Animator.StringToHash("PlayerCollect");
@@ -83,7 +84,16 @@ public class Player : MonoBehaviour
     /// <param name="context"></param>
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (context.action.inProgress && !GameManager.Instance.IsPlayedPaused)
+        // Stop movement completely during dialogue
+        if (GameManager.Instance.IsPlayedPaused)
+        {
+            moveDirection = Vector3.zero;
+            rb.linearVelocity = Vector3.zero;
+
+            return;
+        }
+
+        if (context.action.inProgress && !isInteracting)
         {
             moveDirection = context.ReadValue<Vector2>();
         }
@@ -100,7 +110,7 @@ public class Player : MonoBehaviour
     /// <param name="context"></param>
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.action.inProgress && nearbyInteractable != null && !GameManager.Instance.IsPlayedPaused)
+        if (context.action.inProgress && nearbyInteractable != null && !isInteracting)
         {
             // If the object was destroyed, ignore
             if (nearbyInteractable == null)
@@ -109,8 +119,8 @@ public class Player : MonoBehaviour
                 return;
             }
 
-            // Interact and initiate collect animation
-
+            // Pause Player
+            isInteracting = true;
             GameManager.Instance.IsPlayedPaused = true;
 
             animator.SetTrigger(collectParam);
@@ -140,6 +150,18 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         GameManager.Instance.IsPlayedPaused = false;
+        isInteracting = false;
+
+        // Immediately apply movement
+        var playerInput = GetComponent<PlayerInput>();
+        if (playerInput != null)
+        {
+            var moveAction = playerInput.actions["Move"];
+            if (moveAction != null)
+            {
+                moveDirection = moveAction.ReadValue<Vector2>();
+            }
+        }
     }
 
     /// <summary>

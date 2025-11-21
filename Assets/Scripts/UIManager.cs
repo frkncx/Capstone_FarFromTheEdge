@@ -58,12 +58,6 @@ public class UIManager : MonoBehaviour
 
     void UpdateQuestItems()
     {
-        // Add Item Icon to the inventory
-        if (GameManager.Instance.QuestItem1Collected)
-        {
-            EquipmentItems[0].SetActive(true);
-        }
-
         if (GameManager.Instance.MagicItem == 1)
         {
             EquipmentItems[1].SetActive(true);

@@ -9,7 +9,7 @@ public class GameManager : Singleton<GameManager>
 {
     // Area 2 UTILS 
     public int Item1Count { get; set; } = 0;
-    //public int Item2Count { get; set; } = 0;
+    public bool Area2Completed { get; set; } = false;
 
     // Area 3 UTILS
     public int Item3Count { get; set; } = 0;
@@ -17,11 +17,8 @@ public class GameManager : Singleton<GameManager>
     public int MagicItem { get; set; } = 0;
     public bool Quest1ReadytoComplete { get; set; } = false;
 
-    // area 1 UTILS
-    public bool QuestItem1Collected { get; set; } = false;
-
-    
-    public bool Area2Completed { get; set; } = false;
+    [Header("Area 1 Utilities")]
+    public bool BlueOrbItem { get; set; } = false;
 
     // Effects
     public Image transitionCanvas;
@@ -63,7 +60,6 @@ public class GameManager : Singleton<GameManager>
     }
 
     #region First Area
-
 
 
     #endregion

@@ -1,3 +1,5 @@
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Pedestal : MonoBehaviour, IPlayerInteractable
@@ -12,9 +14,24 @@ public class Pedestal : MonoBehaviour, IPlayerInteractable
 
     public bool PedestalCompleted => AllItemsActive();
 
+    // Visual cue popup
+    [SerializeField] protected GameObject EVisualCue;
+
     private void Start()
     {
         UpdateItemsToShow();
+    }
+
+    private void Update()
+    {
+        if (AllItemsActive())
+        {
+            HideCue();
+        }
+        else if (collectedCount > 0)
+        {
+            ShowCue();
+        }
     }
 
     private void UpdateItemsToShow()
@@ -52,5 +69,17 @@ public class Pedestal : MonoBehaviour, IPlayerInteractable
         UpdateItemsToShow();
 
         GameManager.Instance.CheckArea2();
+    }
+
+    public void ShowCue()
+    {
+        if (EVisualCue != null)
+            EVisualCue.SetActive(true);
+    }
+
+    public void HideCue()
+    {
+        if (EVisualCue != null)
+            EVisualCue.SetActive(false);
     }
 }

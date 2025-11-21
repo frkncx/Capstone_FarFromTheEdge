@@ -14,7 +14,7 @@ public class Gate : MonoBehaviour
 
     public void ToggleGate()
     {
-        if (GameManager.Instance.QuestItem1Collected && !isOpen)
+        if (GameManager.Instance.BlueOrbItem && !isOpen)
         {
             isOpen = true;
             animator.SetTrigger(openParam);

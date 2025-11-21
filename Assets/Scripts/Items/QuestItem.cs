@@ -9,7 +9,7 @@ public class QuestItem : Item, IPlayerInteractable
     public void OnPlayerInteraction(Player player)
     {
         Debug.Log($"{itemName} Collected");
-        GameManager.Instance.QuestItem1Collected = true;
+        GameManager.Instance.BlueOrbItem = true;
         Destroy(transform.parent.gameObject);
         
     }

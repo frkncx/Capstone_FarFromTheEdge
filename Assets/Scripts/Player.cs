@@ -84,14 +84,14 @@ public class Player : MonoBehaviour
     /// <param name="context"></param>
     public void OnMove(InputAction.CallbackContext context)
     {
-        // Stop movement completely during dialogue
-        if (GameManager.Instance.IsPlayedPaused)
-        {
-            moveDirection = Vector3.zero;
-            rb.linearVelocity = Vector3.zero;
+        //// Stop movement completely during dialogue
+        //if (GameManager.Instance.IsPlayedPaused)
+        //{
+        //    moveDirection = Vector3.zero;
+        //    rb.linearVelocity = Vector3.zero;
 
-            return;
-        }
+        //    return;
+        //}
 
         if (context.action.inProgress && !isInteracting)
         {
@@ -122,6 +122,9 @@ public class Player : MonoBehaviour
             // Pause Player
             isInteracting = true;
             GameManager.Instance.IsPlayedPaused = true;
+
+            moveDirection = Vector3.zero;
+            rb.linearVelocity = Vector3.zero;
 
             animator.SetTrigger(collectParam);
             nearbyInteractable.OnPlayerInteraction(this);

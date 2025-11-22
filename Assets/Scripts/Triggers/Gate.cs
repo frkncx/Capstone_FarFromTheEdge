@@ -1,16 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Gate : MonoBehaviour
+public class Gate : MonoBehaviour, IPlayerInteractable
 {
     public bool isOpen = false;
     private static readonly int openParam = Animator.StringToHash("Open");
     public Animator animator;
-
-    private void Update()
-    {
-        ToggleGate();
-   }
 
     public void ToggleGate()
     {
@@ -19,5 +14,10 @@ public class Gate : MonoBehaviour
             isOpen = true;
             animator.SetTrigger(openParam);
         }
+    }
+
+    public void OnPlayerInteraction(Player player)
+    {
+        ToggleGate();
     }
 } 

@@ -57,6 +57,12 @@ public class DialogueControl : MonoBehaviour
         {
             GameManager.Instance.IsPlayedPaused = true;
 
+            //if (quest.state == QuestState.InProgress)
+            //{
+            //    if (!selfDialogueEventComplete && objectToActivate != null)
+            //        objectToActivate.SetActive(true);
+            //}
+
             // check quest state for completion here
             if (quest.state == QuestState.InProgress && GameManager.Instance.Quest1ReadytoComplete)
             {
@@ -74,6 +80,9 @@ public class DialogueControl : MonoBehaviour
             var playerInput = GetComponent<PlayerInput>();
             if (playerInput != null)
                 playerInput.DeactivateInput();
+
+            if (!selfDialogueEventComplete && objectToActivate != null)
+                objectToActivate.SetActive(true);
         }
         else if (characterType == CharacterType.Player && playerHit && !dialogueStarted && !selfDialogueEventComplete)
         {

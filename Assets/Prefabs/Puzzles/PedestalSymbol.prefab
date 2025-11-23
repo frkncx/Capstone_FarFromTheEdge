@@ -120,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4150919074553455562}
   m_Layer: 0
-  m_Name: Item2
+  m_Name: PedestalSymbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -394,7 +394,6 @@ GameObject:
   - component: {fileID: 5161848367999397847}
   - component: {fileID: 4648208181336584924}
   - component: {fileID: 2113156972875024182}
-  - component: {fileID: 8010913373766539098}
   m_Layer: 0
   m_Name: Item2Mesh
   m_TagString: Untagged
@@ -513,18 +512,3 @@ MonoBehaviour:
   useCurrentPositionAsStart: 1
   relativeEndPosition: 1
   pingPong: 1
---- !u!114 &8010913373766539098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7140183380459798693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4c9776f07e524244a7d694c7afcc116, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Item2
-  rotateSpeed: 90
-  itemName: Item2
-  EVisualCue: {fileID: 7054564403395915757}

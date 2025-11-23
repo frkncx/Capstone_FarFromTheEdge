@@ -47,9 +47,9 @@ public class Pedestal : MonoBehaviour, IPlayerInteractable
     /// <param name="player"></param>
     public void OnPlayerInteraction(Player player)
     {
-        if (GameManager.Instance.Item1Count > 0)
+        if (GameManager.Instance.Item2Count > 0)
         {
-            GameManager.Instance.Item1Count--;
+            GameManager.Instance.Item2Count--;
             collectedCount++;
         }
 

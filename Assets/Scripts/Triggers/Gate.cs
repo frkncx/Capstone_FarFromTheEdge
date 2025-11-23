@@ -7,7 +7,7 @@ public class Gate : MonoBehaviour, IPlayerInteractable
     private static readonly int openParam = Animator.StringToHash("Open");
     public Animator animator;
 
-    public void ToggleGate()
+    public virtual void ToggleGate()
     {
         if (GameManager.Instance.BlueOrbItem && !isOpen)
         {

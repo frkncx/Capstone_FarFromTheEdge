@@ -11,6 +11,6 @@ public class Item1 : Item, IPlayerInteractable
         Debug.Log($"{itemName} Collected");
         Destroy(gameObject);
         Destroy(EVisualCue);
-        GameManager.Instance.Item1Count++;
+        GameManager.Instance.Item2Count++;
     }
 }

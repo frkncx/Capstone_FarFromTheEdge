@@ -8,13 +8,14 @@ using UnityEngine.UI;
 public class GameManager : Singleton<GameManager>
 {
     // Area 2 UTILS 
-    public int Item1Count { get; set; } = 0;
+    public int Item2Count { get; set; } = 0;
     public bool Area2Completed { get; set; } = false;
 
     // Area 3 UTILS
     public int Item3Count { get; set; } = 0;
     public bool QuestCompletedArea3 { get; set; } = false;
-    public int MagicItem { get; set; } = 0;
+    public int PickaxeItem { get; set; } = 1;   
+    public int FireOrbItem { get; set; } = 1;
     public bool Quest1ReadytoComplete { get; set; } = false;
 
     [Header("Area 1 Utilities")]

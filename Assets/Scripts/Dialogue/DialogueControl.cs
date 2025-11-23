@@ -80,15 +80,13 @@ public class DialogueControl : MonoBehaviour
             var playerInput = GetComponent<PlayerInput>();
             if (playerInput != null)
                 playerInput.DeactivateInput();
-
-            if (!selfDialogueEventComplete && objectToActivate != null)
-                objectToActivate.SetActive(true);
         }
         else if (characterType == CharacterType.Player && playerHit && !dialogueStarted && !selfDialogueEventComplete)
         {
             dialogueBox.SetActive(true);
             dialogueStarted = true;
 
+            // activate the object after dialogue (The Blue Orb for example) - OPTIONAL
             if (!selfDialogueEventComplete && objectToActivate != null)
                 objectToActivate.SetActive(true);
 
@@ -140,6 +138,15 @@ public class DialogueControl : MonoBehaviour
             if (quest.state == QuestState.NotStarted && dialogueStarted)
             {
                 quest.state = QuestState.InProgress;
+
+                // Give the pickaxe here
+                if (characterType == CharacterType.Crafter)
+                {
+                    if (!selfDialogueEventComplete && objectToActivate != null)
+                        objectToActivate.SetActive(true);
+
+                    GameManager.Instance.PickaxeItem += 1;
+                }
             }
             else if (quest.state == QuestState.InProgress && GameManager.Instance.CheckArea3Quest())
             {
@@ -150,7 +157,7 @@ public class DialogueControl : MonoBehaviour
             {
                 // Quest fully done, give rewards
                 GameManager.Instance.Item3Count = 0;
-                GameManager.Instance.MagicItem += 1;
+                GameManager.Instance.FireOrbItem += 1;
             }
         }
         else

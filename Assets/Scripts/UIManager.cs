@@ -27,8 +27,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        item1Count.text = GameManager.Instance.Item1Count.ToString("D1");
-        //item2Count.text = GameManager.Instance.Item2Count.ToString("D1");
+        item1Count.text = GameManager.Instance.Item2Count.ToString("D1");
         Item3Count.text = GameManager.Instance.Item3Count.ToString("D1");
 
         UpdateQuestItems();
@@ -58,15 +57,20 @@ public class UIManager : MonoBehaviour
 
     void UpdateQuestItems()
     {
-        if (GameManager.Instance.MagicItem == 1)
+        if (GameManager.Instance.FireOrbItem == 1)
         {
             EquipmentItems[1].SetActive(true);
+        }
+
+        if (GameManager.Instance.PickaxeItem == 1)
+        {
+            EquipmentItems[0].SetActive(true);
         }
     }
 
     void UpdateSlots()
     {
-        if (GameManager.Instance.Item1Count < 1)
+        if (GameManager.Instance.Item2Count < 1)
         {
             slots[0].SetActive(false);
         }

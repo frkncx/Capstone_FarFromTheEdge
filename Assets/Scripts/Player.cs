@@ -183,7 +183,7 @@ public class Player : MonoBehaviour
 
             if (interactable is Pedestal pedestal)
             {
-                if (!pedestal.PedestalCompleted && GameManager.Instance.Item1Count > 0)
+                if (!pedestal.PedestalCompleted && GameManager.Instance.Item2Count > 0)
                     pedestal.ShowCue();
             }
         }

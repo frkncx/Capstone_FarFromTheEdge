@@ -23,8 +23,7 @@ public class GameManager : Singleton<GameManager>
     public bool Area3PedestalCompleted { get; set; } = false;
 
     // Area 4 UTILS
-    public bool GreenOrbItem { get; set; } = false;    
-    public bool Area4PedestalCompleted { get; set; } = false;
+    public bool GreenOrbItem { get; set; } = false;
 
     // Area 5 UTILS
 

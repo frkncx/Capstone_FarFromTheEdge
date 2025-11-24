@@ -192,6 +192,12 @@ public class Player : MonoBehaviour
                 if (!firePedestal.PedestalCompleted && GameManager.Instance.FireOrbItem > 0)
                     firePedestal.ShowCue();
             }
+
+            if (interactable is LeverPedestal leverPedestal)
+            {
+                if (!leverPedestal.PedestalCompleted && !leverPedestal.isActivated)
+                    leverPedestal.ShowCue();
+            }
         }
 
         // Check the end of the game
@@ -221,6 +227,9 @@ public class Player : MonoBehaviour
 
             if (interactable is FirePedestal firePedestal)
                 firePedestal.HideCue();
+
+            if (interactable is LeverPedestal leverPedestal)
+                leverPedestal.HideCue();
 
             nearbyInteractable = null;
         }

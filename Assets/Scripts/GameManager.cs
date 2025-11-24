@@ -7,19 +7,44 @@ using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
+    [Header("Area 1 Utilities")]
+    public bool BlueOrbItem { get; set; } = false;
+
     // Area 2 UTILS 
     public int Item2Count { get; set; } = 0;
-    public bool Area2Completed { get; set; } = false;
+    public bool Area2PedestalCompleted { get; set; } = false;
 
     // Area 3 UTILS
     public int Item3Count { get; set; } = 0;
-    public bool QuestCompletedArea3 { get; set; } = false;
+    public bool Quest1Completed { get; set; } = false;
     public int PickaxeItem { get; set; } = 1;   
     public int FireOrbItem { get; set; } = 1;
     public bool Quest1ReadytoComplete { get; set; } = false;
+    public bool Area3PedestalCompleted { get; set; } = false;
 
-    [Header("Area 1 Utilities")]
-    public bool BlueOrbItem { get; set; } = false;
+    // Area 4 UTILS
+    public bool GreenOrbItem { get; set; } = false;    
+    public bool Area4PedestalCompleted { get; set; } = false;
+
+    // Area 5 UTILS
+
+    // Area 6 UTILS
+
+    // Area 7 UTILS
+
+    // ----------------------------
+
+    // 2nd Area Puzzle Completed
+    [SerializeField]
+    GameObject Pedestal;
+
+    // 3rd Area Puzzle Completed
+    [SerializeField]
+    GameObject FirePedestal;
+
+    // 4th area puzzle completed
+    [SerializeField]
+    GameObject AltarPedestal;
 
     // Effects
     public Image transitionCanvas;
@@ -27,10 +52,7 @@ public class GameManager : Singleton<GameManager>
     //TextSpeed for menu settings
     public float textSpeed = 0.01f;
 
-    // 2nd Area Puzzle Completed
-    [SerializeField]
-    GameObject Pedestal;
-
+    // Pause Player State
     public bool IsPlayedPaused { get; set; } = false;
 
     /// <summary>
@@ -71,7 +93,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (Pedestal.GetComponent<Pedestal>().PedestalCompleted)
         {
-            Area2Completed = true;
+            Area2PedestalCompleted = true;
         }
     }
 
@@ -83,11 +105,20 @@ public class GameManager : Singleton<GameManager>
     {
         if (Item3Count >= 3)
         {
-            return QuestCompletedArea3 = true;
+            return Quest1Completed = true;
         }
         else
         {
-            return QuestCompletedArea3 = false;
+            return Quest1Completed = false;
+        }
+    }
+
+    // Fire Pedestal for Now
+    public void CheckArea3()
+    {
+        if (FirePedestal.GetComponent<FirePedestal>().FirePedestalCompleted)
+        {
+            Area3PedestalCompleted = true;
         }
     }
 

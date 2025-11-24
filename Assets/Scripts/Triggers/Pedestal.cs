@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pedestal : MonoBehaviour, IPlayerInteractable
 {
     [Header("Pedestal Features")]
-    [SerializeField] GameObject[] itemsToDisplay; // items to show on the pedestal
+    [SerializeField] protected GameObject[] itemsToDisplay; // items to show on the pedestal
 
     //[Tooltip("Select a Type if you want Item 1 or Item 2 to interact with Pedestal")]
     //public int pedestalType; // for item 1 or 2
@@ -15,14 +15,14 @@ public class Pedestal : MonoBehaviour, IPlayerInteractable
     public bool PedestalCompleted => AllItemsActive();
 
     // Visual cue popup
-    [SerializeField] protected GameObject EVisualCue;
+    [SerializeField] public GameObject EVisualCue;
 
     private void Start()
     {
         UpdateItemsToShow();
     }
 
-    private void UpdateItemsToShow()
+    protected virtual void UpdateItemsToShow()
     {
         // Check each itemDisplay game objects and activate based on collected items
         for (int i = 0; i < itemsToDisplay.Length; i++) 
@@ -31,7 +31,7 @@ public class Pedestal : MonoBehaviour, IPlayerInteractable
         }
     }
 
-    public bool AllItemsActive()
+    public virtual bool AllItemsActive()
     {
         foreach (GameObject item in itemsToDisplay)
         {
@@ -45,7 +45,7 @@ public class Pedestal : MonoBehaviour, IPlayerInteractable
     /// Utilize the method by adding the item to the pedestal
     /// </summary>
     /// <param name="player"></param>
-    public void OnPlayerInteraction(Player player)
+    public virtual void OnPlayerInteraction(Player player)
     {
         if (GameManager.Instance.Item2Count > 0)
         {
@@ -53,7 +53,7 @@ public class Pedestal : MonoBehaviour, IPlayerInteractable
             collectedCount++;
         }
 
-        // Use Method here
+        // Display items 
         UpdateItemsToShow();
 
         GameManager.Instance.CheckArea2();

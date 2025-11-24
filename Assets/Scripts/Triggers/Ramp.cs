@@ -12,12 +12,13 @@ public class Ramp : MonoBehaviour
         ToggleGate();
     }
 
-    public void ToggleGate()
+    public virtual void ToggleGate()
     {
-        if (GameManager.Instance.Area2Completed && !isOpen)
+        if (GameManager.Instance.Area2PedestalCompleted && !isOpen)
         {
             isOpen = true;
-            Obstacle.SetActive(false);
+            if (Obstacle != null)
+                Obstacle.SetActive(false);
             animator.SetTrigger(openRampParam);
         }
     }

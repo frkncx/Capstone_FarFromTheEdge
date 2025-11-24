@@ -25,7 +25,7 @@ public class DialogueControl : MonoBehaviour
     public LayerMask playerLayer;
     private Vector3 position;
 
-    [Header("Activate Object for This Dialogue")]
+    [Header("Activate Object for This Dialogue - OPT.")]
     public GameObject objectToActivate;
 
     private Dialogue dialogueComponent;

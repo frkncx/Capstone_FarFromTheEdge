@@ -57,14 +57,14 @@ public class UIManager : MonoBehaviour
 
     void UpdateQuestItems()
     {
-        if (GameManager.Instance.FireOrbItem == 1)
-        {
-            EquipmentItems[1].SetActive(true);
-        }
-
         if (GameManager.Instance.PickaxeItem == 1)
         {
             EquipmentItems[0].SetActive(true);
+        }
+
+        if (GameManager.Instance.FireOrbItem == 1)
+        {
+            EquipmentItems[1].SetActive(true);
         }
     }
 

@@ -18,6 +18,6 @@ public class Item3 : Item, IPlayerInteractable
         Debug.Log($"{itemName} Collected");
         Destroy(transform.parent.gameObject);
         Destroy(EVisualCue);
-        GameManager.Instance.Item3Count++;
+        GameManager.Instance.OreItemCount++;
     }
 }

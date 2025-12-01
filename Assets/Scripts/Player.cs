@@ -213,7 +213,7 @@ public class Player : MonoBehaviour
 
             if (interactable is Pedestal pedestal)
             {
-                if (!pedestal.PedestalCompleted && GameManager.Instance.Item2Count > 0)
+                if (!pedestal.PedestalCompleted && GameManager.Instance.PedalItemCount > 0)
                     pedestal.ShowCue();
             }
 
@@ -235,7 +235,7 @@ public class Player : MonoBehaviour
         {
             // Trigger endgame sequence
             Debug.Log("Endgame Triggered!");
-            // You can call your endgame method here
+            // endgame method here
             GameManager.Instance.GameWon();
         }
     }

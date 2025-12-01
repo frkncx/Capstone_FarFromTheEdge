@@ -46,8 +46,8 @@ public class DialogueControl : MonoBehaviour
         else if (characterType == CharacterType.Alchemist)
         {
             //// Stop interaction if quest is completed (ONLY FOR THE ALCHEMIST)
-            //if (quest.state == QuestState.Completed && !GameManager.Instance.Quest2ReadytoComplete)
-            //    return;
+            if (quest.state == QuestState.Completed && !GameManager.Instance.Quest2ReadytoComplete)
+                return;
         }
 
 
@@ -68,6 +68,34 @@ public class DialogueControl : MonoBehaviour
             {
                 quest.state = QuestState.Completed; // show the completion dialogue
                 GameManager.Instance.Quest1ReadytoComplete = false;
+            }
+
+            dialogueBox.SetActive(true);
+            dialogueStarted = true;
+            canInteract = false;
+
+            // Start the dialogue
+            dialogueComponent.StartQuestDialogue(quest);
+
+            var playerInput = GetComponent<PlayerInput>();
+            if (playerInput != null)
+                playerInput.DeactivateInput();
+        }
+        else if (characterType == CharacterType.Alchemist && playerHit && !dialogueStarted && canInteract && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            GameManager.Instance.IsPlayedPaused = true;
+
+            //if (quest.state == QuestState.InProgress)
+            //{
+            //    if (!selfDialogueEventComplete && objectToActivate != null)
+            //        objectToActivate.SetActive(true);
+            //}
+
+            // check quest state for completion here
+            if (quest.state == QuestState.InProgress && GameManager.Instance.Quest2ReadytoComplete)
+            {
+                quest.state = QuestState.Completed; // show the completion dialogue
+                GameManager.Instance.Quest2ReadytoComplete = false;
             }
 
             dialogueBox.SetActive(true);
@@ -133,35 +161,51 @@ public class DialogueControl : MonoBehaviour
             playerInput.ActivateInput();
 
         // Update quest progress
-        if (characterType != CharacterType.Player)
+        if (characterType == CharacterType.Player)
+        {
+            selfDialogueEventComplete = true;
+        }
+        else if (characterType == CharacterType.Crafter)
         {
             if (quest.state == QuestState.NotStarted && dialogueStarted)
             {
                 quest.state = QuestState.InProgress;
 
-                // Give the pickaxe here
-                if (characterType == CharacterType.Crafter)
-                {
-                    GameManager.Instance.PickaxeItem += 1;
-                }
+                // Give the pickaxe here FOR THE CRAFTER
+                GameManager.Instance.PickaxeItem += 1;
             }
             else if (quest.state == QuestState.InProgress && GameManager.Instance.CheckArea3Quest())
             {
                 GameManager.Instance.Quest1ReadytoComplete = true;
             }
-            // If currently showing the completion dialogue, then mark complete
             else if (quest.state == QuestState.Completed && dialogueStarted)
             {
                 // Quest fully done, give rewards
-                GameManager.Instance.Item3Count = 0;
+                GameManager.Instance.OreItemCount = 0;
                 GameManager.Instance.FireOrbItem += 1;
             }
         }
-        else
+        else if (characterType == CharacterType.Alchemist)
         {
-            selfDialogueEventComplete = true;
+            if (quest.state == QuestState.NotStarted && dialogueStarted)
+            {
+                quest.state = QuestState.InProgress;
+
+                // Alchemist takes this from you
+                GameManager.Instance.FireOrbItem = 0;
+            }
+            else if (quest.state == QuestState.InProgress && GameManager.Instance.CheckArea4Quest())
+            {
+                GameManager.Instance.Quest2ReadytoComplete = true;
+            }
+            else if (quest.state == QuestState.Completed && dialogueStarted)
+            {
+                GameManager.Instance.OreItemCount = 0;
+                GameManager.Instance.PedalItemCount = 0;
+                GameManager.Instance.SightAbilityUnlocked = true;
+            }
         }
 
-            dialogueStarted = false;
+        dialogueStarted = false;
     }
 }

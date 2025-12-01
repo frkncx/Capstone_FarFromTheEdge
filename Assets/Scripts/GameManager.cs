@@ -31,6 +31,9 @@ public class GameManager : Singleton<GameManager>
     public bool SightAbilityUnlocked { get; set; } = false;
     public bool Quest2ReadytoComplete { get; set; } = false;
     public bool Quest2Completed { get; set; } = false;
+    public bool Area6PuzzleCompleted { get; set; } = false;
+    public int[] correctOrder = { 0, 1, 2, 3 };
+    private int progress = 0;
 
     // Area 7 UTILS
 
@@ -143,6 +146,34 @@ public class GameManager : Singleton<GameManager>
             return Quest2Completed = false;
         }
     }
+
+    #region 6th Area
+
+    public void TryActivateRune(int runeIndex)
+    {
+        // Player hit the correct next rune
+        if (runeIndex == correctOrder[progress])
+        {
+            Debug.Log("Correct Rune: " + runeIndex);
+            progress++;
+
+            //(runeIndex);
+
+            // Check if puzzle solved
+            if (progress >= correctOrder.Length)
+            {
+                GameManager.Instance.Area6PuzzleCompleted = true;
+                Debug.Log("Grats");
+            }
+        }
+        else
+        {
+            Debug.Log("Wrong Rune, Resetting puzzle");
+            progress = 0;
+        }
+    }
+
+    #endregion
 
     #endregion
 

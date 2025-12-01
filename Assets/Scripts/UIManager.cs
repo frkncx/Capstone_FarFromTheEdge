@@ -17,6 +17,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> EquipmentItems;
 
+    [SerializeField]
+    private GameObject[] equipmentAffordables;
+
     // Inventory Item Counts
     [SerializeField]
     private TMP_Text item1Count, Item3Count;
@@ -30,7 +33,7 @@ public class UIManager : MonoBehaviour
         item1Count.text = GameManager.Instance.Item2Count.ToString("D1");
         Item3Count.text = GameManager.Instance.Item3Count.ToString("D1");
 
-        UpdateQuestItems();
+        UpdateEquipments();
         UpdateSlots();
     }
 
@@ -55,7 +58,32 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    void UpdateQuestItems()
+    public void HasPickaxeEquipped()
+    {
+        if (GameManager.Instance.PickaxeItem < 1)
+        {
+            return;
+        }
+        GameManager.Instance.HasPickaxeEquipped = true;
+        GameManager.Instance.HasFireOrbEquipped = false;
+        equipmentAffordables[0].SetActive(true);
+        equipmentAffordables[1].SetActive(false);
+    }
+
+    public void HasFireOrbEqipped()
+    {
+        if (GameManager.Instance.FireOrbItem < 1)
+        {
+            return;
+        }
+
+        GameManager.Instance.HasFireOrbEquipped = true;
+        GameManager.Instance.HasPickaxeEquipped = false;
+        equipmentAffordables[1].SetActive(true);
+        equipmentAffordables[0].SetActive(false);
+    }
+
+    void UpdateEquipments()
     {
         if (GameManager.Instance.PickaxeItem == 1)
         {

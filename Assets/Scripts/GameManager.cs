@@ -29,6 +29,7 @@ public class GameManager : Singleton<GameManager>
 
     // Area 6 UTILS
 
+
     // Area 7 UTILS
 
     // ----------------------------
@@ -53,6 +54,10 @@ public class GameManager : Singleton<GameManager>
 
     // Pause Player State
     public bool IsPlayedPaused { get; set; } = false;
+
+    // Equipment Utils
+    public bool HasPickaxeEquipped { get; set; } = false;
+    public bool HasFireOrbEquipped { get; set; } = false;
 
     /// <summary>
     /// Pause the Game on pressing ESC, Attached to Player Input 

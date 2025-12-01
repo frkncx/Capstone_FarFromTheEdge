@@ -168,7 +168,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Sprint"",
                     ""type"": ""Button"",
                     ""id"": ""641cd816-40e6-41b4-8c3d-04687c349290"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -682,6 +682,24 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EquipPickaxe"",
+                    ""type"": ""Button"",
+                    ""id"": ""ad7c0a76-172d-4f64-9f01-3f68cc13a710"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EquipItem2"",
+                    ""type"": ""Button"",
+                    ""id"": ""45c0555a-ada1-4210-bf7d-2085a2f5b446"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1146,6 +1164,28 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""SkipDialogue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bcfb022e-2e5c-4469-86aa-94ede6b7e54e"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""EquipPickaxe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1580090d-7af6-4c0f-ac82-d5c90468e928"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""EquipItem2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1239,6 +1279,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         m_UI_Inventory = m_UI.FindAction("Inventory", throwIfNotFound: true);
         m_UI_SkipDialogue = m_UI.FindAction("SkipDialogue", throwIfNotFound: true);
+        m_UI_EquipPickaxe = m_UI.FindAction("EquipPickaxe", throwIfNotFound: true);
+        m_UI_EquipItem2 = m_UI.FindAction("EquipItem2", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1517,6 +1559,8 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Pause;
     private readonly InputAction m_UI_Inventory;
     private readonly InputAction m_UI_SkipDialogue;
+    private readonly InputAction m_UI_EquipPickaxe;
+    private readonly InputAction m_UI_EquipItem2;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -1580,6 +1624,14 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/SkipDialogue".
         /// </summary>
         public InputAction @SkipDialogue => m_Wrapper.m_UI_SkipDialogue;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/EquipPickaxe".
+        /// </summary>
+        public InputAction @EquipPickaxe => m_Wrapper.m_UI_EquipPickaxe;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/EquipItem2".
+        /// </summary>
+        public InputAction @EquipItem2 => m_Wrapper.m_UI_EquipItem2;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1645,6 +1697,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @SkipDialogue.started += instance.OnSkipDialogue;
             @SkipDialogue.performed += instance.OnSkipDialogue;
             @SkipDialogue.canceled += instance.OnSkipDialogue;
+            @EquipPickaxe.started += instance.OnEquipPickaxe;
+            @EquipPickaxe.performed += instance.OnEquipPickaxe;
+            @EquipPickaxe.canceled += instance.OnEquipPickaxe;
+            @EquipItem2.started += instance.OnEquipItem2;
+            @EquipItem2.performed += instance.OnEquipItem2;
+            @EquipItem2.canceled += instance.OnEquipItem2;
         }
 
         /// <summary>
@@ -1695,6 +1753,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @SkipDialogue.started -= instance.OnSkipDialogue;
             @SkipDialogue.performed -= instance.OnSkipDialogue;
             @SkipDialogue.canceled -= instance.OnSkipDialogue;
+            @EquipPickaxe.started -= instance.OnEquipPickaxe;
+            @EquipPickaxe.performed -= instance.OnEquipPickaxe;
+            @EquipPickaxe.canceled -= instance.OnEquipPickaxe;
+            @EquipItem2.started -= instance.OnEquipItem2;
+            @EquipItem2.performed -= instance.OnEquipItem2;
+            @EquipItem2.canceled -= instance.OnEquipItem2;
         }
 
         /// <summary>
@@ -1962,5 +2026,19 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSkipDialogue(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "EquipPickaxe" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEquipPickaxe(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "EquipItem2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEquipItem2(InputAction.CallbackContext context);
     }
 }

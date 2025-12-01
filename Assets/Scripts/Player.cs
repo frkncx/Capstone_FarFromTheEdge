@@ -23,6 +23,15 @@ public class Player : MonoBehaviour
     // Animation Utils
     private static readonly int collectParam = Animator.StringToHash("PlayerCollect");
 
+    [Header("Equipment Utils")]
+    public GameObject pickaxe;
+    public GameObject fireOrb;
+
+    private void Update()
+    {
+        UpdateEquipedItem();
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -53,6 +62,27 @@ public class Player : MonoBehaviour
         animator.SetFloat("MoveSpeed", speed, 0.1f, Time.fixedDeltaTime);
 
         #endregion
+    }
+
+    private void UpdateEquipedItem()
+    {
+        if (GameManager.Instance.HasPickaxeEquipped)
+        {
+            pickaxe.SetActive(true);
+        }
+        else
+        {
+            pickaxe.SetActive(false);
+        }
+
+        if (GameManager.Instance.HasFireOrbEquipped)
+        {
+            fireOrb.SetActive(true);
+        }
+        else
+        {
+            fireOrb.SetActive(false);
+        }
     }
 
     #region Movement Methods
@@ -189,7 +219,7 @@ public class Player : MonoBehaviour
 
             if (interactable is FirePedestal firePedestal)
             {
-                if (!firePedestal.PedestalCompleted && GameManager.Instance.FireOrbItem > 0)
+                if (!firePedestal.PedestalCompleted && GameManager.Instance.FireOrbItem > 0 && GameManager.Instance.HasFireOrbEquipped)
                     firePedestal.ShowCue();
             }
 

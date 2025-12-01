@@ -142,9 +142,6 @@ public class DialogueControl : MonoBehaviour
                 // Give the pickaxe here
                 if (characterType == CharacterType.Crafter)
                 {
-                    if (!selfDialogueEventComplete && objectToActivate != null)
-                        objectToActivate.SetActive(true);
-
                     GameManager.Instance.PickaxeItem += 1;
                 }
             }

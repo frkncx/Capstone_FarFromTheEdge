@@ -31,7 +31,7 @@ public class FirePedestal : Pedestal, IPlayerInteractable
 
     public override void OnPlayerInteraction(Player player)
     {
-        if (GameManager.Instance.FireOrbItem <= 0)
+        if (GameManager.Instance.FireOrbItem < 1 || !GameManager.Instance.HasFireOrbEquipped)
         {
             return;
         }

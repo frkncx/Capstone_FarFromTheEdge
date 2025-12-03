@@ -17,6 +17,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> EquipmentItems;
 
+    [SerializeField]
+    private GameObject[] equipmentAffordables;
+
     // Inventory Item Counts
     [SerializeField]
     private TMP_Text item1Count, Item3Count;
@@ -27,10 +30,10 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        item1Count.text = GameManager.Instance.Item2Count.ToString("D1");
-        Item3Count.text = GameManager.Instance.Item3Count.ToString("D1");
+        item1Count.text = GameManager.Instance.PedalItemCount.ToString("D1");
+        Item3Count.text = GameManager.Instance.OreItemCount.ToString("D1");
 
-        UpdateQuestItems();
+        UpdateEquipments();
         UpdateSlots();
     }
 
@@ -55,22 +58,55 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    void UpdateQuestItems()
+    public void HasPickaxeEquipped()
+    {
+        if (GameManager.Instance.PickaxeItem < 1)
+        {
+            return;
+        }
+        GameManager.Instance.HasPickaxeEquipped = true;
+        GameManager.Instance.HasFireOrbEquipped = false;
+        equipmentAffordables[0].SetActive(true);
+        equipmentAffordables[1].SetActive(false);
+    }
+
+    public void HasFireOrbEqipped()
+    {
+        if (GameManager.Instance.FireOrbItem < 1)
+        {
+            return;
+        }
+
+        GameManager.Instance.HasFireOrbEquipped = true;
+        GameManager.Instance.HasPickaxeEquipped = false;
+        equipmentAffordables[1].SetActive(true);
+        equipmentAffordables[0].SetActive(false);
+    }
+
+    void UpdateEquipments()
     {
         if (GameManager.Instance.PickaxeItem == 1)
         {
             EquipmentItems[0].SetActive(true);
+        }
+        else
+        {
+            EquipmentItems[0].SetActive(false);
         }
 
         if (GameManager.Instance.FireOrbItem == 1)
         {
             EquipmentItems[1].SetActive(true);
         }
+        else
+        {
+            EquipmentItems[1].SetActive(false);
+        }    
     }
 
     void UpdateSlots()
     {
-        if (GameManager.Instance.Item2Count < 1)
+        if (GameManager.Instance.PedalItemCount < 1)
         {
             slots[0].SetActive(false);
         }
@@ -79,7 +115,7 @@ public class UIManager : MonoBehaviour
             slots[0].SetActive(true);
         }
 
-        if (GameManager.Instance.Item3Count < 1)
+        if (GameManager.Instance.OreItemCount < 1)
         {
             slots[1].SetActive(false);
         }

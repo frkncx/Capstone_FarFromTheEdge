@@ -7,7 +7,7 @@ public class BreakableGate : Gate, IPlayerInteractable
     public override void ToggleGate()
     {
         // break instead of open
-        if (GameManager.Instance.PickaxeItem > 0 && !isOpen)
+        if (GameManager.Instance.HasPickaxeEquipped && GameManager.Instance.PickaxeItem > 0 && !isOpen)
         {
             isOpen = true;
             animator.SetTrigger(openParam);

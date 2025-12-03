@@ -1183,13 +1183,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736cb5e368bbb354f9cddcf2940d025d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueControl
+  characterType: 0
   dialogueBox: {fileID: 4735606695349329868}
   quest:
     state: 0
+  selfDialogueEventComplete: 0
   dialogueRange: 2
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  objectToActivate: {fileID: 0}
 --- !u!1 &6247072771975330865
 GameObject:
   m_ObjectHideFlags: 0

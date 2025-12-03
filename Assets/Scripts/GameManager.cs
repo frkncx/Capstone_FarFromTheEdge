@@ -11,11 +11,11 @@ public class GameManager : Singleton<GameManager>
     public bool BlueOrbItem { get; set; } = false;
 
     // Area 2 UTILS 
-    public int Item2Count { get; set; } = 0;
+    public int PedalItemCount { get; set; } = 8;
     public bool Area2PedestalCompleted { get; set; } = false;
 
     // Area 3 UTILS
-    public int Item3Count { get; set; } = 0;
+    public int OreItemCount { get; set; } = 8;
     public bool Quest1Completed { get; set; } = false;
     public int PickaxeItem { get; set; } = 1;   
     public int FireOrbItem { get; set; } = 1;
@@ -28,6 +28,12 @@ public class GameManager : Singleton<GameManager>
     // Area 5 UTILS
 
     // Area 6 UTILS
+    public bool SightAbilityUnlocked { get; set; } = false;
+    public bool Quest2ReadytoComplete { get; set; } = false;
+    public bool Quest2Completed { get; set; } = false;
+    public bool Area6PuzzleCompleted { get; set; } = false;
+    public int[] correctOrder = { 0, 1, 2, 3 };
+    private int progress = 0;
 
     // Area 7 UTILS
 
@@ -53,6 +59,10 @@ public class GameManager : Singleton<GameManager>
 
     // Pause Player State
     public bool IsPlayedPaused { get; set; } = false;
+
+    // Equipment Utils
+    public bool HasPickaxeEquipped { get; set; } = false;
+    public bool HasFireOrbEquipped { get; set; } = false;
 
     /// <summary>
     /// Pause the Game on pressing ESC, Attached to Player Input 
@@ -102,7 +112,7 @@ public class GameManager : Singleton<GameManager>
 
     public bool CheckArea3Quest()
     {
-        if (Item3Count >= 3)
+        if (OreItemCount >= 3)
         {
             return Quest1Completed = true;
         }
@@ -120,6 +130,50 @@ public class GameManager : Singleton<GameManager>
             Area3PedestalCompleted = true;
         }
     }
+
+    #endregion
+
+    #region Fourth Area
+
+    public bool CheckArea4Quest()
+    {
+        if (PedalItemCount >= 8 && OreItemCount >= 6)
+        {
+            return Quest2Completed = true;
+        }
+        else
+        {
+            return Quest2Completed = false;
+        }
+    }
+
+    #region 6th Area
+
+    public void TryActivateRune(int runeIndex)
+    {
+        // Player hit the correct next rune
+        if (runeIndex == correctOrder[progress])
+        {
+            Debug.Log("Correct Rune: " + runeIndex);
+            progress++;
+
+            //(runeIndex);
+
+            // Check if puzzle solved
+            if (progress >= correctOrder.Length)
+            {
+                GameManager.Instance.Area6PuzzleCompleted = true;
+                Debug.Log("Grats");
+            }
+        }
+        else
+        {
+            Debug.Log("Wrong Rune, Resetting puzzle");
+            progress = 0;
+        }
+    }
+
+    #endregion
 
     #endregion
 

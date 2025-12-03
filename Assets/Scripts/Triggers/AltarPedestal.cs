@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class AltarPedestal : FirePedestal, IPlayerInteractable
 {
+    // Recieve the Green Orb Here
     private static readonly int recieveParam = Animator.StringToHash("Complete");
     public Animator animator;
 
@@ -9,7 +10,7 @@ public class AltarPedestal : FirePedestal, IPlayerInteractable
     {
         base.OnPlayerInteraction(player);
 
-        if (GameManager.Instance.FireOrbItem> 0 && animator != null)
+        if (GameManager.Instance.HasFireOrbEquipped && GameManager.Instance.FireOrbItem> 0 && animator != null)
             animator.SetTrigger(recieveParam);
 
         if (FirePedestalCompleted)

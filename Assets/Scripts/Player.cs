@@ -1,8 +1,9 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class Player : MonoBehaviour
     private IPlayerInteractable nearbyInteractable;
     private bool isInteracting = false;
 
+    [Header("Safety Net")]
+    public float fallThreshold = -10f;
+    public float recordInterval = 0.2f;   // position saved every 0.2s
+    public float historyDuration = 5f;    // save last 5 seconds
+
     // Animation Utils
     private static readonly int collectParam = Animator.StringToHash("PlayerCollect");
 
@@ -27,9 +33,26 @@ public class Player : MonoBehaviour
     public GameObject pickaxe;
     public GameObject fireOrb;
 
+    private float safetyTimer;
+    private Queue<PositionRecord> positionHistory = new Queue<PositionRecord>();
+
+    private struct PositionRecord
+    {
+        public Vector3 pos;
+        public float time;
+        public PositionRecord(Vector3 p, float t)
+        {
+            pos = p;
+            time = t;
+        }
+    }
+
     private void Update()
     {
         UpdateEquipedItem();
+
+        RecordSafetyPositions();
+        CheckFallSafetyNet();
     }
 
     // Update is called once per frame
@@ -132,6 +155,41 @@ public class Player : MonoBehaviour
 
     #endregion
 
+    #region Safety Net Methods
+
+    private void RecordSafetyPositions()
+    {
+        safetyTimer += Time.deltaTime;
+
+        if (safetyTimer >= recordInterval)
+        {
+            safetyTimer = 0f;
+            positionHistory.Enqueue(new PositionRecord(transform.position, Time.time));
+        }
+
+        // Remove older-than-5s records
+        while (positionHistory.Count > 0 &&
+               Time.time - positionHistory.Peek().time > historyDuration)
+        {
+            positionHistory.Dequeue();
+        }
+    }
+
+    private void CheckFallSafetyNet()
+    {
+        if (transform.position.y < fallThreshold && positionHistory.Count > 0)
+        {
+            PositionRecord safePos = positionHistory.Peek();
+
+            transform.position = safePos.pos;
+            rb.linearVelocity = Vector3.zero;
+
+            Debug.Log("Safety Net Activated — Player restored.");
+        }
+    }
+
+    #endregion
+
     #region Collecting Item Methods
 
     /// <summary>
@@ -211,6 +269,12 @@ public class Player : MonoBehaviour
             if (interactable is Item item)
                 item.ShowCue();
 
+            if (interactable is Lever lever)
+            {
+                if (!lever.isActivated)
+                    lever.ShowCue();
+            }
+
             if (interactable is Pedestal pedestal)
             {
                 if (!pedestal.PedestalCompleted && GameManager.Instance.PedalItemCount > 0)
@@ -260,6 +324,9 @@ public class Player : MonoBehaviour
 
             if (interactable is LeverPedestal leverPedestal)
                 leverPedestal.HideCue();
+
+            if (interactable is Lever lever)
+                lever.HideCue();
 
             nearbyInteractable = null;
         }

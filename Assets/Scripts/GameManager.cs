@@ -11,11 +11,11 @@ public class GameManager : Singleton<GameManager>
     public bool BlueOrbItem { get; set; } = false;
 
     // Area 2 UTILS 
-    public int PedalItemCount { get; set; } = 8;
+    public int PedalItemCount { get; set; } = 0;
     public bool Area2PedestalCompleted { get; set; } = false;
 
     // Area 3 UTILS
-    public int OreItemCount { get; set; } = 8;
+    public int OreItemCount { get; set; } = 0;
     public bool Quest1Completed { get; set; } = false;
     public int PickaxeItem { get; set; } = 1;   
     public int FireOrbItem { get; set; } = 1;
@@ -36,6 +36,8 @@ public class GameManager : Singleton<GameManager>
     private int progress = 0;
 
     // Area 7 UTILS
+    public bool Area1Set { get; set; } = false;
+    public bool Area2Set { get; set; } = false;
 
     // ----------------------------
 

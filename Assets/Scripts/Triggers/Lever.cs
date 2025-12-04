@@ -3,7 +3,8 @@ using UnityEngine;
 public enum LeverParam
 {
     Complete,
-    Trigger1, Trigger2, Trigger3, Trigger4, Trigger5
+    Trigger1, Trigger2, Trigger3, Trigger4, Trigger5,
+    None
 }
 
 public class Lever : MonoBehaviour, IPlayerInteractable
@@ -18,7 +19,9 @@ public class Lever : MonoBehaviour, IPlayerInteractable
     public void OnPlayerInteraction(Player player)
     {
         // Implement lever interaction logic here
-        animator.SetTrigger(currentParam.ToString());
+        if (animator != null)
+            animator.SetTrigger(currentParam.ToString());
+
         isActivated = true;
     }
 

@@ -53,6 +53,13 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     GameObject AltarPedestal;
 
+    // 7th Area Puzzle Completed
+    [SerializeField]
+    GameObject Altar1, Altar2;
+
+    [SerializeField]
+    GameObject[] Pedestals;
+
     // Effects
     public Image transitionCanvas;
 
@@ -149,6 +156,8 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    #endregion
+
     #region 6th Area
 
     public void TryActivateRune(int runeIndex)
@@ -176,6 +185,39 @@ public class GameManager : Singleton<GameManager>
     }
 
     #endregion
+
+    #region 7th Area
+
+    /// <summary>
+    /// Maybe call it in one of the runes
+    /// </summary>
+    /// <returns></returns>
+    public bool CheckArea71()
+    {
+        if (Altar1.GetComponent<Altar>().isActivated &&
+            Altar2.GetComponent<Altar>().isActivated)
+        {
+            Debug.Log("Area 7.1 Set");
+            return Area1Set = true;
+        }
+        else
+        {
+            return  Area1Set = false;
+        }
+    }
+
+    public bool CheckArea72()
+    {
+        foreach (GameObject pedestal in Pedestals)
+        {
+            if (!pedestal.GetComponent<Lever>().isActivated)
+            {
+                return Area2Set = false;
+            }
+        }
+        Debug.Log("Area 7.2 Set");
+        return Area2Set = true;
+    }
 
     #endregion
 

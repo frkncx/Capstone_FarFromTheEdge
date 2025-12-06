@@ -12,6 +12,7 @@ public class Lever : MonoBehaviour, IPlayerInteractable
     public LeverParam currentParam;
     public Animator animator;
     public bool isActivated = false;
+    public bool repeatable = false;
 
     // Visual cue popup
     [SerializeField] private GameObject EVisualCue;
@@ -22,7 +23,8 @@ public class Lever : MonoBehaviour, IPlayerInteractable
         if (animator != null)
             animator.SetTrigger(currentParam.ToString());
 
-        isActivated = true;
+        if (!repeatable)
+            isActivated = true;
     }
 
     public void ShowCue()

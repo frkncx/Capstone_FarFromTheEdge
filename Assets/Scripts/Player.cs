@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     public GameObject fireOrb;
 
     private float safetyTimer;
-    private Queue<PositionRecord> positionHistory = new Queue<PositionRecord>();
+    private readonly Queue<PositionRecord> positionHistory = new Queue<PositionRecord>();
 
     private struct PositionRecord
     {
@@ -184,7 +184,7 @@ public class Player : MonoBehaviour
             transform.position = safePos.pos;
             rb.linearVelocity = Vector3.zero;
 
-            Debug.Log("Safety Net Activated — Player restored.");
+            Debug.Log("Safety Net Activated");
         }
     }
 

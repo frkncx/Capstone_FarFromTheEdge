@@ -11,11 +11,11 @@ public class GameManager : Singleton<GameManager>
     public bool BlueOrbItem { get; set; } = false;
 
     // Area 2 UTILS 
-    public int PedalItemCount { get; set; } = 0;
+    public int PedalItemCount { get; set; } = 1;
     public bool Area2PedestalCompleted { get; set; } = false;
 
     // Area 3 UTILS
-    public int OreItemCount { get; set; } = 0;
+    public int OreItemCount { get; set; } = 1;
     public bool Quest1Completed { get; set; } = false;
     public int PickaxeItem { get; set; } = 1;   
     public int FireOrbItem { get; set; } = 1;
@@ -23,7 +23,7 @@ public class GameManager : Singleton<GameManager>
     public bool Area3PedestalCompleted { get; set; } = false;
 
     // Area 4 UTILS
-    public bool GreenOrbItem { get; set; } = false;
+    public int GreenOrbItem { get; set; } = 1;
 
     // Area 5 UTILS
 
@@ -72,6 +72,7 @@ public class GameManager : Singleton<GameManager>
     // Equipment Utils
     public bool HasPickaxeEquipped { get; set; } = false;
     public bool HasFireOrbEquipped { get; set; } = false;
+    public bool HasGreenOrbEquipped { get; set; } = false;
 
     /// <summary>
     /// Pause the Game on pressing ESC, Attached to Player Input 
@@ -173,7 +174,7 @@ public class GameManager : Singleton<GameManager>
             // Check if puzzle solved
             if (progress >= correctOrder.Length)
             {
-                GameManager.Instance.Area6PuzzleCompleted = true;
+                Area6PuzzleCompleted = true;
                 Debug.Log("Grats");
             }
         }

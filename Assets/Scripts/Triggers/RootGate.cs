@@ -7,7 +7,7 @@ public class RootGate : Gate, IPlayerInteractable
     public override void ToggleGate()
     {
         // break instead of open
-        if (GameManager.Instance.GreenOrbItem == true)
+        if (GameManager.Instance.GreenOrbItem == 1 && GameManager.Instance.HasGreenOrbEquipped)
         {
             animator.SetTrigger(removeParam);
         }

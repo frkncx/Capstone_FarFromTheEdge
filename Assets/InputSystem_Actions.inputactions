@@ -614,6 +614,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "EquipItem3",
+                    "type": "Button",
+                    "id": "d949a717-3767-425a-8576-34415962ac19",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1098,6 +1107,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "EquipItem2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1a94154-0986-4960-b6e1-e2d9cdcc69e7",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "EquipItem3",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

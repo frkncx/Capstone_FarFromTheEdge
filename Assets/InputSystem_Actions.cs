@@ -700,6 +700,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EquipItem3"",
+                    ""type"": ""Button"",
+                    ""id"": ""d949a717-3767-425a-8576-34415962ac19"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1186,6 +1195,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""action"": ""EquipItem2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e1a94154-0986-4960-b6e1-e2d9cdcc69e7"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""EquipItem3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1281,6 +1301,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_UI_SkipDialogue = m_UI.FindAction("SkipDialogue", throwIfNotFound: true);
         m_UI_EquipPickaxe = m_UI.FindAction("EquipPickaxe", throwIfNotFound: true);
         m_UI_EquipItem2 = m_UI.FindAction("EquipItem2", throwIfNotFound: true);
+        m_UI_EquipItem3 = m_UI.FindAction("EquipItem3", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -1561,6 +1582,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_SkipDialogue;
     private readonly InputAction m_UI_EquipPickaxe;
     private readonly InputAction m_UI_EquipItem2;
+    private readonly InputAction m_UI_EquipItem3;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -1633,6 +1655,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @EquipItem2 => m_Wrapper.m_UI_EquipItem2;
         /// <summary>
+        /// Provides access to the underlying input action "UI/EquipItem3".
+        /// </summary>
+        public InputAction @EquipItem3 => m_Wrapper.m_UI_EquipItem3;
+        /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
         public InputActionMap Get() { return m_Wrapper.m_UI; }
@@ -1703,6 +1729,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @EquipItem2.started += instance.OnEquipItem2;
             @EquipItem2.performed += instance.OnEquipItem2;
             @EquipItem2.canceled += instance.OnEquipItem2;
+            @EquipItem3.started += instance.OnEquipItem3;
+            @EquipItem3.performed += instance.OnEquipItem3;
+            @EquipItem3.canceled += instance.OnEquipItem3;
         }
 
         /// <summary>
@@ -1759,6 +1788,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @EquipItem2.started -= instance.OnEquipItem2;
             @EquipItem2.performed -= instance.OnEquipItem2;
             @EquipItem2.canceled -= instance.OnEquipItem2;
+            @EquipItem3.started -= instance.OnEquipItem3;
+            @EquipItem3.performed -= instance.OnEquipItem3;
+            @EquipItem3.canceled -= instance.OnEquipItem3;
         }
 
         /// <summary>
@@ -2040,5 +2072,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnEquipItem2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "EquipItem3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEquipItem3(InputAction.CallbackContext context);
     }
 }

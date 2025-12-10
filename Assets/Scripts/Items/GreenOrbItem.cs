@@ -9,7 +9,7 @@ public class GreenOrbItem : Item, IPlayerInteractable
     public void OnPlayerInteraction(Player player)
     {
         Debug.Log($"{itemName} Collected");
-        GameManager.Instance.GreenOrbItem = true;
+        GameManager.Instance.GreenOrbItem = 1;
         Destroy(transform.parent.gameObject);
 
     }

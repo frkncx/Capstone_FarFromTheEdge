@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
 {
     // Toggle Backpack
     [SerializeField]
-    private GameObject inventoryMenu;
+    private GameObject inventoryBar;
     private static readonly int closeBackPack = Animator.StringToHash("CloseBackpack");
     private static readonly int openBackPack = Animator.StringToHash("OpenBackpack");
     public Animator animator;
@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
 
     // Inventory Item Counts
     [SerializeField]
-    private TMP_Text item1Count, Item3Count;
+    private TMP_Text item1Count, Item2Count, Item3Count, Item4Count, Item5Count;
 
     // When no items, disable slot game objects
     [SerializeField]
@@ -31,7 +31,10 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         item1Count.text = GameManager.Instance.PedalItemCount.ToString("D1");
+        Item2Count.text = GameManager.Instance.OreItemCount.ToString("D1");
         Item3Count.text = GameManager.Instance.OreItemCount.ToString("D1");
+        Item4Count.text = GameManager.Instance.OreItemCount.ToString("D1");
+        Item5Count.text = GameManager.Instance.OreItemCount.ToString("D1");
 
         UpdateEquipments();
         UpdateSlots();
@@ -39,7 +42,7 @@ public class UIManager : MonoBehaviour
 
     public void ToggleInventoryBackpack()
     {
-        if (inventoryMenu != null)
+        if (inventoryBar != null)
         {
             // Reset both triggers before setting the desired one to avoid overlap
             animator.ResetTrigger(closeBackPack);
@@ -66,8 +69,10 @@ public class UIManager : MonoBehaviour
         }
         GameManager.Instance.HasPickaxeEquipped = true;
         GameManager.Instance.HasFireOrbEquipped = false;
+        GameManager.Instance.HasGreenOrbEquipped = false;
         equipmentAffordables[0].SetActive(true);
         equipmentAffordables[1].SetActive(false);
+        equipmentAffordables[2].SetActive(false);
     }
 
     public void HasFireOrbEqipped()
@@ -79,8 +84,20 @@ public class UIManager : MonoBehaviour
 
         GameManager.Instance.HasFireOrbEquipped = true;
         GameManager.Instance.HasPickaxeEquipped = false;
+        GameManager.Instance.HasGreenOrbEquipped = false;
         equipmentAffordables[1].SetActive(true);
         equipmentAffordables[0].SetActive(false);
+        equipmentAffordables[2].SetActive(false);
+    }
+
+    public void HasGreenOrbEquipped()
+    {
+        GameManager.Instance.HasGreenOrbEquipped = true;
+        GameManager.Instance.HasFireOrbEquipped = false;
+        GameManager.Instance.HasPickaxeEquipped = false;
+        equipmentAffordables[2].SetActive(true);
+        equipmentAffordables[0].SetActive(false);
+        equipmentAffordables[1].SetActive(false);
     }
 
     void UpdateEquipments()
@@ -102,6 +119,15 @@ public class UIManager : MonoBehaviour
         {
             EquipmentItems[1].SetActive(false);
         }    
+
+        if (GameManager.Instance.GreenOrbItem == 1)
+        {
+            EquipmentItems[2].SetActive(true);
+        }
+        else
+        {
+            EquipmentItems[2].SetActive(false);
+        }
     }
 
     void UpdateSlots()

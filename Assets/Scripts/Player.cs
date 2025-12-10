@@ -29,9 +29,9 @@ public class Player : MonoBehaviour
     // Animation Utils
     private static readonly int collectParam = Animator.StringToHash("PlayerCollect");
 
-    [Header("Equipment Utils")]
-    public GameObject pickaxe;
-    public GameObject fireOrb;
+    //[Header("Equipment Utils")]
+    //public GameObject pickaxe;
+    //public GameObject fireOrb;
 
     private float safetyTimer;
     private readonly Queue<PositionRecord> positionHistory = new Queue<PositionRecord>();
@@ -49,10 +49,21 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        UpdateEquipedItem();
-
         RecordSafetyPositions();
         CheckFallSafetyNet();
+
+        if (GameManager.Instance.IsPlayedPaused)
+        {
+            animator.SetFloat("MoveSpeed", 0f);
+            return;
+        }
+
+        // Update animation parameter every frame
+        float speed = moveDirection.magnitude;
+        animator.SetFloat("MoveSpeed", speed);
+
+        // Flip the sprite
+        GetFacingDirection(-moveDirection.x);
     }
 
     // Update is called once per frame
@@ -62,7 +73,7 @@ public class Player : MonoBehaviour
         if (GameManager.Instance.IsPlayedPaused)
         {
             rb.linearVelocity = Vector3.zero;
-            animator.SetFloat("MoveSpeed", 0f);
+            moveDirection = Vector2.zero;
             return;
         }
 
@@ -72,41 +83,28 @@ public class Player : MonoBehaviour
 
         // Flip the player sprite based on movement direction
         GetFacingDirection(-moveDirection.x);
-
-        #region Animation Control
-
-        // Check anim
-        if (animator == null) return;
-
-        // Use XZ speed for blend tree
-        float speed = new Vector2(moveDirection.x, moveDirection.y).magnitude;
-
-        // Set Animation Speed (For the Blend Tree)
-        animator.SetFloat("MoveSpeed", speed, 0.1f, Time.fixedDeltaTime);
-
-        #endregion
     }
 
-    private void UpdateEquipedItem()
-    {
-        if (GameManager.Instance.HasPickaxeEquipped)
-        {
-            pickaxe.SetActive(true);
-        }
-        else
-        {
-            pickaxe.SetActive(false);
-        }
+    //private void UpdateEquipedItem()
+    //{
+    //    if (GameManager.Instance.HasPickaxeEquipped)
+    //    {
+    //        pickaxe.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //        pickaxe.SetActive(false);
+    //    }
 
-        if (GameManager.Instance.HasFireOrbEquipped)
-        {
-            fireOrb.SetActive(true);
-        }
-        else
-        {
-            fireOrb.SetActive(false);
-        }
-    }
+    //    if (GameManager.Instance.HasFireOrbEquipped)
+    //    {
+    //        fireOrb.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //        fireOrb.SetActive(false);
+    //    }
+    //}
 
     #region Movement Methods
 
@@ -137,15 +135,6 @@ public class Player : MonoBehaviour
     /// <param name="context"></param>
     public void OnMove(InputAction.CallbackContext context)
     {
-        //// Stop movement completely during dialogue
-        //if (GameManager.Instance.IsPlayedPaused)
-        //{
-        //    moveDirection = Vector3.zero;
-        //    rb.linearVelocity = Vector3.zero;
-
-        //    return;
-        //}
-
         if (context.action.inProgress && !isInteracting)
         {
             moveDirection = context.ReadValue<Vector2>();

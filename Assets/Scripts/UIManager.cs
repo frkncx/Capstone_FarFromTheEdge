@@ -32,9 +32,9 @@ public class UIManager : MonoBehaviour
     {
         item1Count.text = GameManager.Instance.PedalItemCount.ToString("D1");
         Item2Count.text = GameManager.Instance.OreItemCount.ToString("D1");
-        Item3Count.text = GameManager.Instance.OreItemCount.ToString("D1");
-        Item4Count.text = GameManager.Instance.OreItemCount.ToString("D1");
-        Item5Count.text = GameManager.Instance.OreItemCount.ToString("D1");
+        Item3Count.text = GameManager.Instance.BlueOreItemCount.ToString("D1");
+        Item4Count.text = GameManager.Instance.GoldenOreItemCount.ToString("D1");
+        Item5Count.text = GameManager.Instance.GoldenPedalItemCount.ToString("D1");
 
         UpdateEquipments();
         UpdateSlots();
@@ -148,6 +148,33 @@ public class UIManager : MonoBehaviour
         else
         {
             slots[1].SetActive(true);
+        }
+
+        if (GameManager.Instance.BlueOreItemCount < 1)
+        {
+            slots[2].SetActive(false);
+        }
+        else
+        {
+            slots[2].SetActive(true);
+        }
+
+        if (GameManager.Instance.GoldenOreItemCount < 1)
+        {
+            slots[3].SetActive(false);
+        }
+        else
+        {
+            slots[3].SetActive(true);
+        }
+
+        if (GameManager.Instance.GoldenPedalItemCount < 1)
+        {
+            slots[4].SetActive(false);
+        }
+        else
+        {
+            slots[4].SetActive(true);
         }
     }
 }

@@ -14,9 +14,10 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI[] textComponent;
 
     public Sprite[] sprites;
-    public Image characterSprite;
+    public Image dialogueSprite;
 
     public GameObject[] characterName;
+    public GameObject[] characterIcon;
 
     public int index = 0;
 
@@ -56,8 +57,9 @@ public class Dialogue : MonoBehaviour
         // visuals
         DeactivateTexts();
         dialogueText[index].SetActive(true);
-        characterSprite.sprite = sprites[index];
+        dialogueSprite.sprite = sprites[index];
         characterName[index].SetActive(true);
+        characterIcon[index].SetActive(true);
 
         // Start typing text
         text = textComponent[index].text;
@@ -74,8 +76,9 @@ public class Dialogue : MonoBehaviour
         index = 0;
         DeactivateTexts();
         dialogueText[0].SetActive(true);
-        characterSprite.sprite = sprites[0];
+        dialogueSprite.sprite = sprites[0];
         characterName[0].SetActive(true);
+        characterIcon[0].SetActive(true);
 
         text = textComponent[0].text;
         textComponent[0].text = "";
@@ -93,6 +96,11 @@ public class Dialogue : MonoBehaviour
         for (int i = 0; i < characterName.Length; i++)
         {
             characterName[i].SetActive(false);
+        }
+
+        for (int i = 0; i < characterIcon.Length; i++)
+        {
+            characterIcon[i].SetActive(false);
         }
     }
 
@@ -116,8 +124,9 @@ public class Dialogue : MonoBehaviour
                 index++;
                 DeactivateTexts();
 
-                characterSprite.sprite = sprites[index];
+                dialogueSprite.sprite = sprites[index];
                 characterName[index].SetActive(true);
+                characterIcon[index].SetActive(true);
                 dialogueText[index].SetActive(true);
 
                 text = textComponent[index].text;
@@ -152,9 +161,10 @@ public class Dialogue : MonoBehaviour
             index++;
             DeactivateTexts();
 
-            characterSprite.sprite = sprites[index];
+            dialogueSprite.sprite = sprites[index];
             characterName[index].SetActive(true);
             dialogueText[index].SetActive(true);
+            characterIcon[index].SetActive(true);
 
             text = textComponent[index].text;
             textComponent[index].text = "";

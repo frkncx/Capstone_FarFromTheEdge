@@ -11,11 +11,9 @@ public class GameManager : Singleton<GameManager>
     public bool BlueOrbItem { get; set; } = false;
 
     // Area 2 UTILS 
-    public int PedalItemCount { get; set; } = 1;
     public bool Area2PedestalCompleted { get; set; } = false;
 
     // Area 3 UTILS
-    public int OreItemCount { get; set; } = 1;
     public bool Quest1Completed { get; set; } = false;
     public int PickaxeItem { get; set; } = 1;   
     public int FireOrbItem { get; set; } = 1;
@@ -40,6 +38,20 @@ public class GameManager : Singleton<GameManager>
     public bool Area2Set { get; set; } = false;
 
     // ----------------------------
+
+    // Item Utils
+    public int PedalItemCount { get; set; } = 0;
+    public int OreItemCount { get; set; } = 0;
+    public int BlueOreItemCount { get; set; } = 0;
+    public int GoldenPedalItemCount { get; set; } = 0;
+    public int GoldenOreItemCount { get; set; } = 0;
+
+    // Equipment Utils
+    public bool HasPickaxeEquipped { get; set; } = false;
+    public bool HasFireOrbEquipped { get; set; } = false;
+    public bool HasGreenOrbEquipped { get; set; } = false;
+
+    //----------------------------
 
     // 2nd Area Puzzle Completed
     [SerializeField]
@@ -69,10 +81,7 @@ public class GameManager : Singleton<GameManager>
     // Pause Player State
     public bool IsPlayedPaused { get; set; } = false;
 
-    // Equipment Utils
-    public bool HasPickaxeEquipped { get; set; } = false;
-    public bool HasFireOrbEquipped { get; set; } = false;
-    public bool HasGreenOrbEquipped { get; set; } = false;
+    
 
     /// <summary>
     /// Pause the Game on pressing ESC, Attached to Player Input 

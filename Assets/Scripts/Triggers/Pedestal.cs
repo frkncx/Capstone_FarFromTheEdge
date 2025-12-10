@@ -9,6 +9,7 @@ public class Pedestal : MonoBehaviour, IPlayerInteractable
 
     //[Tooltip("Select a Type if you want Item 1 or Item 2 to interact with Pedestal")]
     //public int pedestalType; // for item 1 or 2
+    public bool cueVisible = false;
 
     private int collectedCount = 0; // number of items collected
 
@@ -61,12 +62,18 @@ public class Pedestal : MonoBehaviour, IPlayerInteractable
 
     public void ShowCue()
     {
+        if (cueVisible) return;
+
+        cueVisible = true;
         if (EVisualCue != null)
             EVisualCue.SetActive(true);
     }
 
     public void HideCue()
     {
+        if (!cueVisible) return;
+
+        cueVisible = false;
         if (EVisualCue != null)
             EVisualCue.SetActive(false);
     }

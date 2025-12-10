@@ -9,6 +9,8 @@ public class Item : MonoBehaviour
     // Visual cue popup
     [SerializeField] protected GameObject EVisualCue;
 
+    public bool cueVisible = false;
+
     private void Update()
     {
         // rotate automatically without the need for animation
@@ -18,12 +20,18 @@ public class Item : MonoBehaviour
     // These two methods will be called by Player
     public void ShowCue()
     {
+        if (cueVisible) return;
+
+        cueVisible = true;
         if (EVisualCue != null)
             EVisualCue.SetActive(true);
     }
 
     public void HideCue()
     {
+        if (!cueVisible) return;
+
+        cueVisible = false;
         if (EVisualCue != null)
             EVisualCue.SetActive(false);
     }

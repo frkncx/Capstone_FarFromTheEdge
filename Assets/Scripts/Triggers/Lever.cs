@@ -17,6 +17,8 @@ public class Lever : MonoBehaviour, IPlayerInteractable
     // Visual cue popup
     [SerializeField] private GameObject EVisualCue;
 
+    public bool cueVisible = false;
+
     public void OnPlayerInteraction(Player player)
     {
         // Implement lever interaction logic here
@@ -29,12 +31,20 @@ public class Lever : MonoBehaviour, IPlayerInteractable
 
     public void ShowCue()
     {
+        if (cueVisible) return;     // already visible, do nothing
+
+        cueVisible = true;
+
         if (EVisualCue != null)
             EVisualCue.SetActive(true);
     }
 
     public void HideCue()
     {
+        if (!cueVisible) return;    // already hidden, do nothing
+
+        cueVisible = false;
+
         if (EVisualCue != null)
             EVisualCue.SetActive(false);
     }

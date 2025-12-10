@@ -193,6 +193,13 @@ public class DialogueControl : MonoBehaviour
 
                 // Alchemist takes this from you
                 GameManager.Instance.FireOrbItem = 0;
+
+                if (GameManager.Instance.PedalItemCount < 5 || GameManager.Instance.BlueOreItemCount < 5)
+                {
+                    // Give initial items if player doesn't have enough
+                    GameManager.Instance.PedalItemCount = 5;
+                    GameManager.Instance.BlueOreItemCount = 5;
+                }
             }
             else if (quest.state == QuestState.InProgress && GameManager.Instance.CheckAlchemistQuest())
             {

@@ -142,22 +142,22 @@ public class UIManager : MonoBehaviour
             slots[0].SetActive(true);
         }
 
-        if (GameManager.Instance.OreItemCount > 1)
+        if (GameManager.Instance.OreItemCount > 0)
         {
             slots[1].SetActive(true);
         }
 
-        if (GameManager.Instance.BlueOreItemCount > 1)
+        if (GameManager.Instance.BlueOreItemCount > 0)
         {
             slots[2].SetActive(true);
         }
 
-        if (GameManager.Instance.GoldenOreItemCount > 1)
+        if (GameManager.Instance.GoldenOreItemCount > 0)
         {
             slots[3].SetActive(true);
         }
 
-        if (GameManager.Instance.GoldenPedalItemCount > 1)
+        if (GameManager.Instance.GoldenPedalItemCount > 0)
         {
             slots[4].SetActive(true);
         }

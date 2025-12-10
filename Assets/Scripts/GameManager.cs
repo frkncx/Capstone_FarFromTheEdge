@@ -157,33 +157,14 @@ public class GameManager : Singleton<GameManager>
 
     public bool CheckAlchemistQuest()
     {
-        if (PedalItemCount >= 5 && BlueOreItemCount >= 5)
+        if (PedalItemCount >= 8 && BlueOreItemCount >= 6)
         {
-            if (PedalItemCount >= 8 && BlueOreItemCount >= 6)
-            {
-                return Quest2Completed = true;
-            }
-            else
-            {
-                return Quest2Completed = false;
-            }
+            return Quest2Completed = true;
         }
-        else if (PedalItemCount < 5 || BlueOreItemCount < 5)
+        else
         {
-            PedalItemCount = 5;
-            BlueOreItemCount = 5;
-
-            if (PedalItemCount >= 8 && BlueOreItemCount >= 6)
-            {
-                return Quest2Completed = true;
-            }
-            else
-            {
-                return Quest2Completed = false;
-            }
+            return Quest2Completed = false;
         }
-
-        return Quest2Completed = false;
     }
 
     #endregion

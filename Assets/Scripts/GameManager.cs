@@ -15,13 +15,10 @@ public class GameManager : Singleton<GameManager>
 
     // Area 3 UTILS
     public bool Quest1Completed { get; set; } = false;
-    public int PickaxeItem { get; set; } = 1;   
-    public int FireOrbItem { get; set; } = 1;
     public bool Quest1ReadytoComplete { get; set; } = false;
     public bool Area3PedestalCompleted { get; set; } = false;
 
     // Area 4 UTILS
-    public int GreenOrbItem { get; set; } = 1;
 
     // Area 5 UTILS
 
@@ -50,6 +47,10 @@ public class GameManager : Singleton<GameManager>
     public bool HasPickaxeEquipped { get; set; } = false;
     public bool HasFireOrbEquipped { get; set; } = false;
     public bool HasGreenOrbEquipped { get; set; } = false;
+
+    public int PickaxeItem { get; set; } = 1;
+    public int FireOrbItem { get; set; } = 1;
+    public int GreenOrbItem { get; set; } = 0;
 
     //----------------------------
 
@@ -154,16 +155,35 @@ public class GameManager : Singleton<GameManager>
 
     #region Fourth Area
 
-    public bool CheckArea4Quest()
+    public bool CheckAlchemistQuest()
     {
-        if (PedalItemCount >= 8 && OreItemCount >= 6)
+        if (PedalItemCount >= 5 && BlueOreItemCount >= 5)
         {
-            return Quest2Completed = true;
+            if (PedalItemCount >= 8 && BlueOreItemCount >= 6)
+            {
+                return Quest2Completed = true;
+            }
+            else
+            {
+                return Quest2Completed = false;
+            }
         }
-        else
+        else if (PedalItemCount < 5 || BlueOreItemCount < 5)
         {
-            return Quest2Completed = false;
+            PedalItemCount = 5;
+            BlueOreItemCount = 5;
+
+            if (PedalItemCount >= 8 && BlueOreItemCount >= 6)
+            {
+                return Quest2Completed = true;
+            }
+            else
+            {
+                return Quest2Completed = false;
+            }
         }
+
+        return Quest2Completed = false;
     }
 
     #endregion
@@ -184,6 +204,7 @@ public class GameManager : Singleton<GameManager>
             if (progress >= correctOrder.Length)
             {
                 Area6PuzzleCompleted = true;
+
                 Debug.Log("Grats");
             }
         }

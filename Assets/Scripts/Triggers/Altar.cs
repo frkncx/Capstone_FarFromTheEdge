@@ -46,16 +46,16 @@ public class Altar : Pedestal, IPlayerInteractable
         switch (altarType)
         {
             case AltarType.Ore:
-                if (GameManager.Instance.OreItemCount > 0)
+                if (GameManager.Instance.GoldenOreItemCount > 0)
                 {
-                    GameManager.Instance.OreItemCount--;
+                    GameManager.Instance.GoldenOreItemCount--;
                     isActivated = true;
                 }
                 break;
             case AltarType.Pedal:
-                if (GameManager.Instance.PedalItemCount > 0)
+                if (GameManager.Instance.GoldenPedalItemCount > 0)
                 {
-                    GameManager.Instance.PedalItemCount--;
+                    GameManager.Instance.GoldenPedalItemCount--;
                     isActivated = true;
                 }
                 break;

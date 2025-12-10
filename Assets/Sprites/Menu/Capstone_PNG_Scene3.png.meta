@@ -1,0 +1,949 @@
+fileFormatVersion: 2
+guid: 429fdd1f7d1e1c943baff8d04965a998
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6310456316920066059
+    second: Capstone_PNG_Scene3_0
+  - first:
+      213: 2211667844666223357
+    second: Capstone_PNG_Scene3_1
+  - first:
+      213: 1307129586315924468
+    second: Capstone_PNG_Scene3_2
+  - first:
+      213: -1282509998821119905
+    second: Capstone_PNG_Scene3_3
+  - first:
+      213: -8847014131173846477
+    second: Capstone_PNG_Scene3_4
+  - first:
+      213: 2361326401574207025
+    second: Capstone_PNG_Scene3_5
+  - first:
+      213: -7959012843725296076
+    second: Capstone_PNG_Scene3_6
+  - first:
+      213: 7412249075886426559
+    second: Capstone_PNG_Scene3_7
+  - first:
+      213: 6488448066031322214
+    second: Capstone_PNG_Scene3_8
+  - first:
+      213: -6753214579109765025
+    second: Capstone_PNG_Scene3_9
+  - first:
+      213: 7006082543372509423
+    second: Capstone_PNG_Scene3_10
+  - first:
+      213: 1684580694468288044
+    second: Capstone_PNG_Scene3_11
+  - first:
+      213: 7241130928694176373
+    second: Capstone_PNG_Scene3_12
+  - first:
+      213: 2467936416455807941
+    second: Capstone_PNG_Scene3_13
+  - first:
+      213: -4520590673419564853
+    second: Capstone_PNG_Scene3_14
+  - first:
+      213: -287295545317480031
+    second: Capstone_PNG_Scene3_15
+  - first:
+      213: 8528037433189243886
+    second: Capstone_PNG_Scene3_16
+  - first:
+      213: -5701188956103570462
+    second: Capstone_PNG_Scene3_17
+  - first:
+      213: 8796790086758185479
+    second: Capstone_PNG_Scene3_18
+  - first:
+      213: -1870749664559193832
+    second: Capstone_PNG_Scene3_19
+  - first:
+      213: 6055366908388945690
+    second: Capstone_PNG_Scene3_20
+  - first:
+      213: 7427904023412892406
+    second: Capstone_PNG_Scene3_21
+  - first:
+      213: -5580901634899004961
+    second: Capstone_PNG_Scene3_22
+  - first:
+      213: -2414750162346349624
+    second: Capstone_PNG_Scene3_23
+  - first:
+      213: -9036717247686612545
+    second: Capstone_PNG_Scene3_24
+  - first:
+      213: 3412839266626653989
+    second: Capstone_PNG_Scene3_25
+  - first:
+      213: 4418525425903950556
+    second: Capstone_PNG_Scene3_26
+  - first:
+      213: 4180118034313685187
+    second: Capstone_PNG_Scene3_27
+  - first:
+      213: 1163276186649770981
+    second: Capstone_PNG_Scene3_28
+  - first:
+      213: 6010716470950970068
+    second: Capstone_PNG_Scene3_29
+  - first:
+      213: -3536633888686575034
+    second: Capstone_PNG_Scene3_30
+  - first:
+      213: -8345267844877614021
+    second: Capstone_PNG_Scene3_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 359
+        width: 953
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b00f3a4069e339750800000000000000
+      internalID: 6310456316920066059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_1
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 313
+        width: 197
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfaeb72df2c61be10800000000000000
+      internalID: 2211667844666223357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_2
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 326
+        width: 94
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f393cbee6bd32210800000000000000
+      internalID: 1307129586315924468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_3
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 134
+        width: 136
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f58616b73fb933ee0800000000000000
+      internalID: -1282509998821119905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_4
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 331
+        width: 143
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 332958c6587193580800000000000000
+      internalID: -8847014131173846477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_5
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 253
+        width: 138
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13ef494f9dd15c020800000000000000
+      internalID: 2361326401574207025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_6
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 268
+        width: 227
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43e6bfebcf7eb8190800000000000000
+      internalID: -7959012843725296076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_7
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 269
+        width: 110
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb98de243499dd660800000000000000
+      internalID: 7412249075886426559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_8
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 221
+        width: 131
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6640e5783299b0a50800000000000000
+      internalID: 6488448066031322214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_9
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 224
+        width: 91
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f506c20de13c742a0800000000000000
+      internalID: -6753214579109765025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_10
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 228
+        width: 62
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe0a8c014fa9a3160800000000000000
+      internalID: 7006082543372509423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_11
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 236
+        width: 96
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2e53416735d06710800000000000000
+      internalID: 1684580694468288044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_12
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 188
+        width: 72
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57a29e8e63aad7460800000000000000
+      internalID: 7241130928694176373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_13
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 179
+        width: 51
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c35917581fdf3220800000000000000
+      internalID: 2467936416455807941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_14
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 157
+        width: 75
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc802efcbb2a341c0800000000000000
+      internalID: -4520590673419564853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_15
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 119
+        width: 40
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a9acc34932530cf0800000000000000
+      internalID: -287295545317480031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_16
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 119
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeb9a7cacdca95670800000000000000
+      internalID: 8528037433189243886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_17
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 108
+        width: 176
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eb0112c9de41e0b0800000000000000
+      internalID: -5701188956103570462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_18
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 136
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70a36ecf9f9741a70800000000000000
+      internalID: 8796790086758185479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_19
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 102
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 811a44c7713c906e0800000000000000
+      internalID: -1870749664559193832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_20
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 75
+        width: 70
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1fad27de1cf80450800000000000000
+      internalID: 6055366908388945690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_21
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 127
+        width: 105
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f26835ca57351760800000000000000
+      internalID: 7427904023412892406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_22
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 135
+        width: 68
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd1b27d2887ac82b0800000000000000
+      internalID: -5580901634899004961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_23
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 62
+        width: 112
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cb670075851d7ed0800000000000000
+      internalID: -2414750162346349624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_24
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 120
+        width: 45
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb96ef3ba81279280800000000000000
+      internalID: -9036717247686612545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_25
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 88
+        width: 136
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52f49c22b37dc5f20800000000000000
+      internalID: 3412839266626653989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_26
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 56
+        width: 167
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda590ae671c15d30800000000000000
+      internalID: 4418525425903950556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_27
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 36
+        width: 72
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c8a87a7433c20a30800000000000000
+      internalID: 4180118034313685187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_28
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 43
+        width: 95
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eb3ee84789c42010800000000000000
+      internalID: 1163276186649770981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_29
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 41
+        width: 63
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d24f90c8ca5a6350800000000000000
+      internalID: 6010716470950970068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_30
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 36
+        width: 100
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6427a34573a5beec0800000000000000
+      internalID: -3536633888686575034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_PNG_Scene3_31
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 33
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3484963c17af2c80800000000000000
+      internalID: -8345267844877614021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Capstone_PNG_Scene3_0: 6310456316920066059
+      Capstone_PNG_Scene3_1: 2211667844666223357
+      Capstone_PNG_Scene3_10: 7006082543372509423
+      Capstone_PNG_Scene3_11: 1684580694468288044
+      Capstone_PNG_Scene3_12: 7241130928694176373
+      Capstone_PNG_Scene3_13: 2467936416455807941
+      Capstone_PNG_Scene3_14: -4520590673419564853
+      Capstone_PNG_Scene3_15: -287295545317480031
+      Capstone_PNG_Scene3_16: 8528037433189243886
+      Capstone_PNG_Scene3_17: -5701188956103570462
+      Capstone_PNG_Scene3_18: 8796790086758185479
+      Capstone_PNG_Scene3_19: -1870749664559193832
+      Capstone_PNG_Scene3_2: 1307129586315924468
+      Capstone_PNG_Scene3_20: 6055366908388945690
+      Capstone_PNG_Scene3_21: 7427904023412892406
+      Capstone_PNG_Scene3_22: -5580901634899004961
+      Capstone_PNG_Scene3_23: -2414750162346349624
+      Capstone_PNG_Scene3_24: -9036717247686612545
+      Capstone_PNG_Scene3_25: 3412839266626653989
+      Capstone_PNG_Scene3_26: 4418525425903950556
+      Capstone_PNG_Scene3_27: 4180118034313685187
+      Capstone_PNG_Scene3_28: 1163276186649770981
+      Capstone_PNG_Scene3_29: 6010716470950970068
+      Capstone_PNG_Scene3_3: -1282509998821119905
+      Capstone_PNG_Scene3_30: -3536633888686575034
+      Capstone_PNG_Scene3_31: -8345267844877614021
+      Capstone_PNG_Scene3_4: -8847014131173846477
+      Capstone_PNG_Scene3_5: 2361326401574207025
+      Capstone_PNG_Scene3_6: -7959012843725296076
+      Capstone_PNG_Scene3_7: 7412249075886426559
+      Capstone_PNG_Scene3_8: 6488448066031322214
+      Capstone_PNG_Scene3_9: -6753214579109765025
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

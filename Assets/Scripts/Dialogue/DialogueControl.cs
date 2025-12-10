@@ -194,13 +194,13 @@ public class DialogueControl : MonoBehaviour
                 // Alchemist takes this from you
                 GameManager.Instance.FireOrbItem = 0;
             }
-            else if (quest.state == QuestState.InProgress && GameManager.Instance.CheckArea4Quest())
+            else if (quest.state == QuestState.InProgress && GameManager.Instance.CheckAlchemistQuest())
             {
                 GameManager.Instance.Quest2ReadytoComplete = true;
             }
             else if (quest.state == QuestState.Completed && dialogueStarted)
             {
-                GameManager.Instance.OreItemCount = 0;
+                GameManager.Instance.BlueOreItemCount = 0;
                 GameManager.Instance.PedalItemCount = 0;
                 GameManager.Instance.SightAbilityUnlocked = true;
             }

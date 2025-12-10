@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 08a28487e8d34c94983b98acd32975b8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5632332031296765898
+    second: Capstone_Texts_QuitGame_stage2_0
+  - first:
+      213: -8982607383192756099
+    second: Capstone_Texts_QuitGame_stage2_1
+  - first:
+      213: -1738553705438655867
+    second: Capstone_Texts_QuitGame_stage2_2
+  - first:
+      213: -4660246591014526698
+    second: Capstone_Texts_QuitGame_stage2_3
+  - first:
+      213: -8331230345000334610
+    second: Capstone_Texts_QuitGame_stage2_4
+  - first:
+      213: 3400707470579087568
+    second: Capstone_Texts_QuitGame_stage2_5
+  - first:
+      213: 896718403027987354
+    second: Capstone_Texts_QuitGame_stage2_6
+  - first:
+      213: 4091946107107202241
+    second: Capstone_Texts_QuitGame_stage2_7
+  - first:
+      213: 5239762712240337413
+    second: Capstone_Texts_QuitGame_stage2_8
+  - first:
+      213: 3666579803033788749
+    second: Capstone_Texts_QuitGame_stage2_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Capstone_Texts_QuitGame_stage2_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 32
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf7f7e14201a2e40800000000000000
+      internalID: 5632332031296765898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_Texts_QuitGame_stage2_1
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 12
+        width: 39
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d70aef74d2e575380800000000000000
+      internalID: -8982607383192756099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_Texts_QuitGame_stage2_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 19
+        width: 33
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58ac36cbd9a6fd7e0800000000000000
+      internalID: -1738553705438655867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_Texts_QuitGame_stage2_3
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 19
+        width: 11
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 611aad0aa6a735fb0800000000000000
+      internalID: -4660246591014526698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_Texts_QuitGame_stage2_4
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 19
+        width: 33
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeacc485426816c80800000000000000
+      internalID: -8331230345000334610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_Texts_QuitGame_stage2_5
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 19
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d832e04d6db13f20800000000000000
+      internalID: 3400707470579087568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_Texts_QuitGame_stage2_6
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 19
+        width: 38
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9be904f2a8c17c00800000000000000
+      internalID: 896718403027987354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_Texts_QuitGame_stage2_7
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 19
+        width: 37
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c4da2aed4389c830800000000000000
+      internalID: 4091946107107202241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_Texts_QuitGame_stage2_8
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 19
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5023c62ec6067b840800000000000000
+      internalID: 5239762712240337413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capstone_Texts_QuitGame_stage2_9
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 32
+        width: 19
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d41637c87ee42e230800000000000000
+      internalID: 3666579803033788749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Capstone_Texts_QuitGame_stage2_0: 5632332031296765898
+      Capstone_Texts_QuitGame_stage2_1: -8982607383192756099
+      Capstone_Texts_QuitGame_stage2_2: -1738553705438655867
+      Capstone_Texts_QuitGame_stage2_3: -4660246591014526698
+      Capstone_Texts_QuitGame_stage2_4: -8331230345000334610
+      Capstone_Texts_QuitGame_stage2_5: 3400707470579087568
+      Capstone_Texts_QuitGame_stage2_6: 896718403027987354
+      Capstone_Texts_QuitGame_stage2_7: 4091946107107202241
+      Capstone_Texts_QuitGame_stage2_8: 5239762712240337413
+      Capstone_Texts_QuitGame_stage2_9: 3666579803033788749
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

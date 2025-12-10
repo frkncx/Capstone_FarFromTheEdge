@@ -92,6 +92,11 @@ public class UIManager : MonoBehaviour
 
     public void HasGreenOrbEquipped()
     {
+        if (GameManager.Instance.GreenOrbItem < 1)
+        {
+            return;
+        }
+
         GameManager.Instance.HasGreenOrbEquipped = true;
         GameManager.Instance.HasFireOrbEquipped = false;
         GameManager.Instance.HasPickaxeEquipped = false;
@@ -132,47 +137,27 @@ public class UIManager : MonoBehaviour
 
     void UpdateSlots()
     {
-        if (GameManager.Instance.PedalItemCount < 1)
-        {
-            slots[0].SetActive(false);
-        }
-        else
+        if (GameManager.Instance.PedalItemCount > 0)
         {
             slots[0].SetActive(true);
         }
 
-        if (GameManager.Instance.OreItemCount < 1)
-        {
-            slots[1].SetActive(false);
-        }
-        else
+        if (GameManager.Instance.OreItemCount > 1)
         {
             slots[1].SetActive(true);
         }
 
-        if (GameManager.Instance.BlueOreItemCount < 1)
-        {
-            slots[2].SetActive(false);
-        }
-        else
+        if (GameManager.Instance.BlueOreItemCount > 1)
         {
             slots[2].SetActive(true);
         }
 
-        if (GameManager.Instance.GoldenOreItemCount < 1)
-        {
-            slots[3].SetActive(false);
-        }
-        else
+        if (GameManager.Instance.GoldenOreItemCount > 1)
         {
             slots[3].SetActive(true);
         }
 
-        if (GameManager.Instance.GoldenPedalItemCount < 1)
-        {
-            slots[4].SetActive(false);
-        }
-        else
+        if (GameManager.Instance.GoldenPedalItemCount > 1)
         {
             slots[4].SetActive(true);
         }

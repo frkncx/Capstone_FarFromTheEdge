@@ -809,7 +809,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1415
+  m_VersionIndex: 1424
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1055,7 +1055,7 @@ GameObject:
   - component: {fileID: 8716423212112561902}
   - component: {fileID: 8240847700810969872}
   - component: {fileID: 2446238907921218741}
-  - component: {fileID: 6125642332908939768}
+  - component: {fileID: 4806270242996687333}
   m_Layer: 0
   m_Name: Collectable
   m_TagString: Untagged
@@ -1156,7 +1156,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 3
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6125642332908939768
+--- !u!114 &4806270242996687333
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1165,9 +1165,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8935822626729617100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31bf9375cd1c17044a89198735a39108, type: 3}
+  m_Script: {fileID: 11500000, guid: d3d4cff5f66c0a74ea15b1b791a72bac, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Item3
+  m_EditorClassIdentifier: Assembly-CSharp::BlueOre
   rotateSpeed: 90
-  itemName: Golden Ore
+  itemName: Blue Ore
   EVisualCue: {fileID: 999111150279105885}

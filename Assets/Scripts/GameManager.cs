@@ -28,11 +28,12 @@ public class GameManager : Singleton<GameManager>
     public bool Quest2Completed { get; set; } = false;
     public bool Area6PuzzleCompleted { get; set; } = false;
     public int[] correctOrder = { 0, 1, 2, 3 };
-    private int progress = 0;
+    public int progress = 0;
 
     // Area 7 UTILS
     public bool Area1Set { get; set; } = false;
     public bool Area2Set { get; set; } = false;
+    public Light[] RuneLights;
 
     // ----------------------------
 
@@ -48,8 +49,8 @@ public class GameManager : Singleton<GameManager>
     public bool HasFireOrbEquipped { get; set; } = false;
     public bool HasGreenOrbEquipped { get; set; } = false;
 
-    public int PickaxeItem { get; set; } = 1;
-    public int FireOrbItem { get; set; } = 1;
+    public int PickaxeItem { get; set; } = 0;
+    public int FireOrbItem { get; set; } = 0;
     public int GreenOrbItem { get; set; } = 0;
 
     //----------------------------
@@ -210,6 +211,10 @@ public class GameManager : Singleton<GameManager>
             Altar2.GetComponent<Altar>().isActivated)
         {
             Debug.Log("Area 7.1 Set");
+
+            RuneLights[0].gameObject.SetActive(true);
+            RuneLights[1].gameObject.SetActive(true);
+
             return Area1Set = true;
         }
         else
@@ -227,6 +232,10 @@ public class GameManager : Singleton<GameManager>
                 return Area2Set = false;
             }
         }
+
+        RuneLights[2].gameObject.SetActive(true);
+        RuneLights[3].gameObject.SetActive(true);
+
         Debug.Log("Area 7.2 Set");
         return Area2Set = true;
     }
@@ -267,7 +276,7 @@ public class GameManager : Singleton<GameManager>
 
     private void LoadGameWonScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(3);
     }
 
     #endregion

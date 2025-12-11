@@ -244,11 +244,23 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        // Check the end of the game
+        if (other.gameObject.CompareTag("EndGameTrigger"))
+        {
+            // Trigger endgame sequence
+            Debug.Log("Endgame Triggered!");
+            // endgame method here
+            GameManager.Instance.GameWon();
+        }
+    }
+
     /// <summary>
-    /// Visual Cue pop up BOIs
+    /// Visual Cue pop up 
     /// </summary>
     /// <param name="collision"></param>
-    public void OnTriggerEnter(Collider collision)
+    public void OnTriggerStay(Collider collision)
     {
         if (collision.TryGetComponent(out IPlayerInteractable interactable))
         {
@@ -262,76 +274,44 @@ public class Player : MonoBehaviour
             {
                 if (!lever.isActivated)
                     lever.ShowCue();
+                else
+                    lever.HideCue();
             }
 
             if (interactable is Pedestal pedestal)
             {
                 if (!pedestal.PedestalCompleted && GameManager.Instance.PedalItemCount > 0)
                     pedestal.ShowCue();
+                else
+                    pedestal.HideCue();
             }
 
             if (interactable is FirePedestal firePedestal)
             {
                 if (!firePedestal.PedestalCompleted && GameManager.Instance.FireOrbItem > 0 && GameManager.Instance.HasFireOrbEquipped)
                     firePedestal.ShowCue();
+                else
+                    firePedestal.HideCue();
             }
 
             if (interactable is LeverPedestal leverPedestal)
             {
                 if (!leverPedestal.PedestalCompleted && !leverPedestal.isActivated)
                     leverPedestal.ShowCue();
+                else
+                    leverPedestal.HideCue();
+            }
+
+            if (interactable is Altar altar)
+            {
+                if (!altar.isActivated)
+                    altar.ShowCue();
+                else
+                    altar.HideCue();
             }
         }
 
-        // Check the end of the game
-        if (collision.gameObject.CompareTag("EndGameTrigger"))
-        {
-            // Trigger endgame sequence
-            Debug.Log("Endgame Triggered!");
-            // endgame method here
-            GameManager.Instance.GameWon();
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (!other.TryGetComponent(out IPlayerInteractable interactable))
-            return;
-
-        switch (interactable)
-        {
-            case Lever lever:
-                if (!lever.isActivated)
-                    lever.ShowCue();
-                else
-                    lever.HideCue();
-                break;
-
-            case Pedestal pedestal when !(pedestal is FirePedestal) && !(pedestal is LeverPedestal):
-                if (!pedestal.PedestalCompleted &&
-                    GameManager.Instance.PedalItemCount > 0)
-                    pedestal.ShowCue();
-                else
-                    pedestal.HideCue();
-                break;
-
-            case FirePedestal fire:
-                if (!fire.PedestalCompleted &&
-                    GameManager.Instance.FireOrbItem > 0 &&
-                    GameManager.Instance.HasFireOrbEquipped)
-                    fire.ShowCue();
-                else
-                    fire.HideCue();
-                break;
-
-            case LeverPedestal leverPedestal:
-                if (!leverPedestal.PedestalCompleted &&
-                    !leverPedestal.isActivated)
-                    leverPedestal.ShowCue();
-                else
-                    leverPedestal.HideCue();
-                break;
-        }
+        
     }
 
     /// <summary>
@@ -358,7 +338,10 @@ public class Player : MonoBehaviour
             if (interactable is Lever lever)
                 lever.HideCue();
 
-            nearbyInteractable = null;
+            if (interactable is Altar altar)
+                altar.HideCue();
+
+                nearbyInteractable = null;
         }
     }
 

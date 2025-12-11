@@ -6,26 +6,6 @@ public class MenuManager : MonoBehaviour
 {
     public string sceneToLoad;
 
-    public static MenuManager instance;
-
-    MenuManager Instance
-    {  get { return instance; } }
-
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     public void LoadScene()
     {
         SceneManager.LoadScene(sceneToLoad);
